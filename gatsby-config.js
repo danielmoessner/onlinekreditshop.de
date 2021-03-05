@@ -37,15 +37,15 @@ module.exports = {
         name: 'images',
       },
     },
-    {
-      resolve: 'gatsby-plugin-netlify-cms',
-      options: {
-        modulePath: `${__dirname}/src/cms/cms.jsx`,
-        enableIdentityWidget: true,
-        htmlTitle: 'CMS',
-        htmlFavicon: `${__dirname}/static/images/favicon.svg`,
-      },
-    },
+    // {
+    //   resolve: 'gatsby-plugin-netlify-cms',
+    //   options: {
+    //     modulePath: `${__dirname}/src/cms/cms.jsx`,
+    //     enableIdentityWidget: true,
+    //     htmlTitle: 'CMS',
+    //     htmlFavicon: `${__dirname}/static/images/favicon.svg`,
+    //   },
+    // },
     'gatsby-plugin-sitemap',
   ],
 };
