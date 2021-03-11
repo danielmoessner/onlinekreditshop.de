@@ -11,12 +11,9 @@ function Navigation() {
   }
 
   return (
-    <>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6">
-        <nav
-          className="relative flex items-center justify-between sm:h-10 md:justify-center"
-          aria-label="Global"
-        >
+    <nav>
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 pt-6 top-0 left-0 right-0 w-full absolute z-50">
+        <div className="relative flex items-center justify-between sm:h-10 md:justify-center">
           <div className="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
             <div className="flex items-center justify-between w-full md:w-auto">
               <Link to="/">
@@ -59,7 +56,7 @@ function Navigation() {
               <button
                 onClick={() => setOfferOpen(!offerOpen)}
                 type="button"
-                className={`group rounded-md inline-flex items-center text-base font-medium hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-vivid-500 ${
+                className={`group rounded-md inline-flex items-center text-base font-medium ring-offset-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-vivid-500 ${
                   offerOpen ? 'text-gray-900' : 'text-gray-500'
                 }`}
                 aria-expanded="false"
@@ -93,7 +90,10 @@ function Navigation() {
               >
                 <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
                   <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
-                    <Link to="/" className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                    <Link
+                      to="/baufinanzierung/"
+                      className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                    >
                       <svg
                         className="flex-shrink-0 h-6 w-6 text-yellow-vivid-600"
                         xmlns="http://www.w3.org/2000/svg"
@@ -115,7 +115,10 @@ function Navigation() {
                         </p>
                       </div>
                     </Link>
-                    <Link to="/" className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                    <Link
+                      to="/ratenkredit/"
+                      className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                    >
                       <svg
                         className="flex-shrink-0 h-6 w-6 text-yellow-vivid-600"
                         xmlns="http://www.w3.org/2000/svg"
@@ -137,7 +140,10 @@ function Navigation() {
                         </p>
                       </div>
                     </Link>
-                    <Link to="/" className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50">
+                    <Link
+                      to="/finanzierung-ohne-eigenkapital/"
+                      className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                    >
                       <svg
                         className="flex-shrink-0 h-6 w-6 text-yellow-vivid-600"
                         xmlns="http://www.w3.org/2000/svg"
@@ -166,17 +172,17 @@ function Navigation() {
                 </div>
               </Transition>
             </div>
-            <Link to="/" className="font-medium text-gray-500 hover:text-gray-900">
+            <Link to="/ueber-uns/" className="font-medium text-gray-500 hover:text-gray-900">
               Über uns
             </Link>
-            <Link to="/" className="font-medium text-gray-500 hover:text-gray-900">
+            <Link to="/ratgeber/" className="font-medium text-gray-500 hover:text-gray-900">
               Ratgeber
             </Link>
-            <Link to="/" className="font-medium text-gray-500 hover:text-gray-900">
+            <Link to="/kontakt/" className="font-medium text-gray-500 hover:text-gray-900">
               Kontakt
             </Link>
           </div>
-        </nav>
+        </div>
       </div>
       <Transition
         show={isOpen}
@@ -186,84 +192,89 @@ function Navigation() {
         leave="duration-100 ease-in"
         leaveFrom="opacity-100 scale-100"
         leaveTo="opacity-0 scale-95"
+        className="z-50 absolute top-0 inset-x-0 p-2 transition-all transform origin-top-right md:hidden"
       >
-        <div className="absolute top-0 inset-x-0 p-2 transition-all transform origin-top-right md:hidden">
-          <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
-            <div className="px-5 pt-4 flex items-center justify-between">
-              <div>
-                <img
-                  className="h-8 w-auto"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                  alt=""
-                />
-              </div>
-              <div className="-mr-2">
-                <button
-                  onClick={changeOpen}
-                  type="button"
-                  className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-vivid-500"
+        <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
+          <div className="px-5 pt-4 flex items-center justify-between">
+            <div>
+              <img
+                className="h-8 w-auto"
+                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
+                alt=""
+              />
+            </div>
+            <div className="-mr-2">
+              <button
+                onClick={changeOpen}
+                type="button"
+                className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-vivid-500"
+              >
+                <span className="sr-only">Menü schließen</span>
+                <svg
+                  className="h-6 w-6"
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  aria-hidden="true"
                 >
-                  <span className="sr-only">Menü schließen</span>
-                  <svg
-                    className="h-6 w-6"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    aria-hidden="true"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M6 18L18 6M6 6l12 12"
-                    />
-                  </svg>
-                </button>
-              </div>
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M6 18L18 6M6 6l12 12"
+                  />
+                </svg>
+              </button>
             </div>
-            <div className="px-2 pt-2 pb-3 space-y-1">
-              <Link
-                to="/"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-              >
-                Baufinanzierung
-              </Link>
-              <Link
-                to="/"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-              >
-                Ratenkredit
-              </Link>
-              <Link
-                to="/"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-              >
-                Finanzierung ohne Eigenkapital
-              </Link>
-              <Link
-                to="/"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-              >
-                Über uns
-              </Link>
-              <Link
-                to="/"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-              >
-                Ratgeber
-              </Link>
-              <Link
-                to="/"
-                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
-              >
-                Kontakt
-              </Link>
-            </div>
+          </div>
+          <div className="px-2 pt-2 pb-3 space-y-1">
+            <Link
+              to="/"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Startseite
+            </Link>
+            <Link
+              to="/baufinanzierung/"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Baufinanzierung
+            </Link>
+            <Link
+              to="/ratenkredit/"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Ratenkredit
+            </Link>
+            <Link
+              to="/finanzierung-ohne-eigenkapital/"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Finanzierung ohne Eigenkapital
+            </Link>
+            <Link
+              to="/ueber-uns/"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Über uns
+            </Link>
+            <Link
+              to="/rategeber/"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Ratgeber
+            </Link>
+            <Link
+              to="/kontakt/"
+              className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+            >
+              Kontakt
+            </Link>
           </div>
         </div>
       </Transition>
-    </>
+    </nav>
   );
 }
 
