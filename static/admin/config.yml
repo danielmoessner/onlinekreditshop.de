@@ -2,7 +2,7 @@
 backend:
   name: git-gateway
   branch: main
-  repo: danielmoessner/gatsby-netlifycms.tortuga-webdesign.de
+  repo: danielmoessner/online-kreditshop.de
 
 # See https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
 local_backend: true
@@ -11,10 +11,10 @@ local_backend: true
 locale: de
 
 # See https://www.netlifycms.org/docs/configuration-options/#display-url
-display_url: https://gatsby-netlifycms.tortuga-webdesign.de
+display_url: https://online-kreditshop.de
 
 # See https://www.netlifycms.org/docs/configuration-options/#site-url
-site_url: https://gatsby-netlifycms.tortuga-webdesign.de
+site_url: https://online-kreditshop.de
 
 # See https://www.netlifycms.org/docs/configuration-options/#media-folder
 media_folder: /content/media
@@ -47,28 +47,22 @@ collections:
                 widget: text
               - { label: Bild, name: image, widget: image }
 
-  - name: animal
-    label: Wildtiere
-    label_singular: Wildtier
+  - name: article
+    label: Ratgeber
+    label_singular: Ratgeber
     editor:
       preview: true
-    folder: content/animals
+    folder: content/article
     slug: '{{fields.slug}}'
     create: true
-    preview_path: wildtiere/{{fields.slug}}
+    preview_path: ratgeber/{{fields.slug}}/
     fields:
-      - { label: Sammlung, name: collection, widget: hidden, default: animal }
+      - { label: Sammlung, name: collection, widget: hidden, default: article }
       - { label: Titel, name: title, widget: string }
       - { label: Slug, name: slug, widget: string }
-      - { label: Bild, name: image, widget: image }
-      - { label: Auszug, name: excerpt, widget: text }
+      - { label: Datum, name: date, widget: datetime, date_format: DD.MM.YYYY, time_format: '' }
+      - { label: Kurzbeschreibung, name: shortDescription, widget: text }
       - { label: Inhalt, name: body, widget: markdown }
-      - label: 'Kategorie'
-        name: 'category'
-        widget: 'relation'
-        collection: 'category'
-        searchFields: ['title']
-        valueField: 'title'
 
   - name: category
     label: Kategorien

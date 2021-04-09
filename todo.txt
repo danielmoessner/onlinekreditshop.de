@@ -1,0 +1,12 @@
+- ratgeber seite mit anrufen hinweis rechts
+- ratgeber component
+- startseite ins admin
+- kontakt in admin
+- über uns in admin
+- ratgeber in admin
+- angebot 1 in admin
+- angebot 2 in admin
+- angebot 3 in admin
+- impressum in admin
+- datenschutz in admin
+- components button usw wenn nötig

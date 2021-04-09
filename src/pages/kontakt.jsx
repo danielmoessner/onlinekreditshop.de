@@ -36,7 +36,7 @@ function Page() {
         title="Konakt"
         text="Lorem ipsum dolor sit amet consectetur adipisicing elit. Omnis perspiciatis maxime accusantium, quis aspernatur atque tenetur sapiente temporibus ill"
       />
-      <section className="relative bg-gray-50">
+      <section className="relative bg-gray-200">
         <div className="absolute w-full h-1/2 bg-gray-100" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Pattern />
@@ -179,7 +179,7 @@ function Page() {
         </div>
       </section>
 
-      <section className="bg-gray-50">
+      <section className="bg-gray-200">
         <div className="py-24 sm:py-20" />
       </section>
     </Layout>

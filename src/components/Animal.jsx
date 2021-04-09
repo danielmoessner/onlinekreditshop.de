@@ -11,6 +11,7 @@ function Animal({ title, image, category, excerpt, body, preview }) {
       <div className="mb-6">
         <Hero image={image} preview={preview} alt={title} />
       </div>
+
       <div className="max-w-xl w-full mx-auto mb-3">
         <div className="text-gray-600 uppercase font-medium leading-tight tracking-tight -mb-2">
           {category}

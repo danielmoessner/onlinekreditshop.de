@@ -1,10 +1,14 @@
 module.exports = {
+  flags: {
+    DEV_SSR: false,
+  },
   siteMetadata: {
-    siteUrl: 'https://gatsby-netlifycms.tortuga-webdesign.de',
+    siteUrl: 'https://online-kreditshop.de',
   },
   plugins: [
     'gatsby-plugin-eslint',
     'gatsby-plugin-react-helmet',
+    'gatsby-plugin-image',
     'gatsby-plugin-sharp',
     'gatsby-transformer-sharp',
     {
@@ -31,21 +35,14 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-source-filesystem',
+      resolve: 'gatsby-plugin-netlify-cms',
       options: {
-        path: `${__dirname}/static/images`,
-        name: 'images',
+        modulePath: `${__dirname}/src/cms/cms.jsx`,
+        enableIdentityWidget: true,
+        htmlTitle: 'CMS',
+        htmlFavicon: `${__dirname}/static/images/favicon.svg`,
       },
     },
-    // {
-    //   resolve: 'gatsby-plugin-netlify-cms',
-    //   options: {
-    //     modulePath: `${__dirname}/src/cms/cms.jsx`,
-    //     enableIdentityWidget: true,
-    //     htmlTitle: 'CMS',
-    //     htmlFavicon: `${__dirname}/static/images/favicon.svg`,
-    //   },
-    // },
     'gatsby-plugin-sitemap',
   ],
 };
