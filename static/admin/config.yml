@@ -47,6 +47,82 @@ collections:
                 widget: text
               - { label: Bild, name: image, widget: image }
 
+      - file: content/pages/mortgage.md
+        label: Baufinanzierung
+        name: mortgage
+        fields:
+          - { label: Sammlung, name: collection, widget: hidden, default: page }
+          - { label: Slug, name: slug, widget: hidden, default: mortgage }
+          - label: Meta
+            name: meta
+            widget: object
+            fields:
+              - { label: Titel, name: title, widget: string }
+              - label: Beschreibung
+                name: description
+                widget: text
+              - { label: Bild, name: image, widget: image }
+          - { label: Titel, name: title, widget: string }
+          - { label: Kategorie, name: category, widget: string }
+          - { label: Kurzbeschreibung, name: shortDescription, widget: text }
+          - { label: Text, name: body, widget: markdown }
+
+      - file: content/pages/articles.yml
+        label: Ratgeber
+        name: articles
+        fields:
+          - { label: Sammlung, name: collection, widget: hidden, default: page }
+          - { label: Slug, name: slug, widget: hidden, default: articles }
+          - label: Meta
+            name: meta
+            widget: object
+            fields:
+              - { label: Titel, name: title, widget: string }
+              - label: Beschreibung
+                name: description
+                widget: text
+              - { label: Bild, name: image, widget: image }
+          - label: Header
+            name: header
+            widget: object
+            fields:
+              - { label: Titel, name: title, widget: string }
+              - { label: Text, name: text, widget: string }
+          - label: Artikel
+            name: articles
+            widget: object
+            fields:
+              - { label: Lesen Button, name: button, widget: string }
+
+      - file: content/pages/contact.yml
+        label: Kontakt
+        name: contact
+        fields:
+          - { label: Sammlung, name: collection, widget: hidden, default: page }
+          - { label: Slug, name: slug, widget: hidden, default: contact }
+          - label: Meta
+            name: meta
+            widget: object
+            fields:
+              - { label: Titel, name: title, widget: string }
+              - label: Beschreibung
+                name: description
+                widget: text
+              - { label: Bild, name: image, widget: image }
+          - label: Header
+            name: header
+            widget: object
+            fields:
+              - { label: Titel, name: title, widget: string }
+              - { label: Text, name: text, widget: string }
+          - label: Kontakt
+            name: contact
+            widget: object
+            fields:
+              - { label: Titel, name: title, widget: string }
+              - { label: Text, name: text, widget: text }
+              - { label: Maps, name: maps, widget: string }
+
   - name: article
     label: Ratgeber
     label_singular: Ratgeber
@@ -61,6 +137,7 @@ collections:
       - { label: Titel, name: title, widget: string }
       - { label: Slug, name: slug, widget: string }
       - { label: Datum, name: date, widget: datetime, date_format: DD.MM.YYYY, time_format: '' }
+      - { label: Kategorie, name: category, widget: string }
       - { label: Kurzbeschreibung, name: shortDescription, widget: text }
       - { label: Inhalt, name: body, widget: markdown }
 
@@ -90,11 +167,25 @@ collections:
         fields:
           - { label: Sammlung, name: collection, widget: hidden, default: setting }
           - { label: Slug, name: slug, widget: hidden, default: global }
-          - {
-              label: Titel in der Navigation,
-              name: navigationTitle,
-              widget: string,
-              default: Wildtiere,
-            }
-          - { label: URL der Seite, name: siteUrl, widget: string, required: false }
           - { label: Favicon, name: favicon, widget: image }
+          - { label: Logo, name: logo, widget: image }
+      - file: content/settings/teaser.yml
+        label: Teaser
+        name: teaser
+        preview: false
+        fields:
+          - { label: Sammlung, name: collection, widget: hidden, default: setting }
+          - { label: Slug, name: slug, widget: hidden, default: teaser }
+          - { label: Text, name: text, widget: text }
+          - { label: Button Text, name: buttonText, widget: string }
+          - { label: Button Link, name: buttonLink, widget: string }
+      - file: content/settings/contact.yml
+        label: Kontaktinformationen
+        name: contact
+        preview: false
+        fields:
+          - { label: Sammlung, name: collection, widget: hidden, default: setting }
+          - { label: Slug, name: slug, widget: hidden, default: contact }
+          - { label: Telefonnummer, name: phone, widget: string }
+          - { label: E-Mail, name: email, widget: string }
+          - { label: Adresse, name: address, widget: text }

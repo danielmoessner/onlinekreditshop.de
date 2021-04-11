@@ -1,12 +1,17 @@
 ---
 collection: article
-title: Ratgeber 1
-slug: ratgeber-1
+title: Wie viel Baufinazierung kann ich mir eigentlich wirklich leisten?
+slug: wie-viel-baufinanzierung-kann-ich-mir-eigentlich-wirklich-leisten
 date: 2021-04-09T08:53:29.370Z
-shortDescription: Illo sint voluptas. Error voluptates culpa eligendi. Hic vel
-  totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed
-  exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.
+category: Fragen
+shortDescription: Ein ganz wichtiger Punkt ist die monatliche Rate einer
+  Baufinanzierung und deren Berechnung, denn dieser Betrag wird über viele Jahre
+  monatlich fällig.
 ---
-## test
+Beim Bau oder Kauf eines Eigenheims bzw. eines vermieteten Objektes stellen sich viele wichtige Fragen. Ein ganz wichtiger Punkt ist die monatliche Rate einer Baufinanzierung und deren Berechnung, denn dieser Betrag wird über viele Jahre monatlich fällig.
 
-[Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo. Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat consectetur nulla deserunt vel. Iusto corrupti dicta.](http://localhost:8000/)
+Eine der wichtigsten Fragen ist jedoch „Wieviel Baufinanzierung kann ich mir eigentlich wirklich leisten?“
+
+Pauschal wird empfohlen, dass die monatliche Baufinanzierungsrate 35 % des Haushaltsnettoeinkommens nicht überschreiten sollte.
+
+Die Baufinanzierung-Rate setzt sich aus zwei Teilen zusammen: Zinsanteil und Tilgungsanteil. Der Zinsanteil ist der Teil, den die Bank für die Zurverfügungstellung des Kredites erhält. Der Tilgungsanteil wiederum dient der Rückzahlung des Darlehens. Fließen Zins und Tilgung an die Bank, spricht man von einem „Annuitätendarlehen“ (Annuität = Zins + Tilgung).

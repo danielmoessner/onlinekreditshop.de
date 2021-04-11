@@ -28,7 +28,7 @@ function Navigation() {
                 <button
                   type="button"
                   onClick={changeOpen}
-                  className="bg-gray-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-vivid-500"
+                  className="bg-gray-50 rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500"
                   aria-expanded="false"
                 >
                   <span className="sr-only">Menü öffnen</span>
@@ -56,7 +56,7 @@ function Navigation() {
               <button
                 onClick={() => setOfferOpen(!offerOpen)}
                 type="button"
-                className={`group rounded-md inline-flex items-center text-base font-medium ring-offset-gray-100 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-vivid-500 ${
+                className={`group rounded-md inline-flex items-center text-base font-medium ring-offset-gray-050 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 ${
                   offerOpen ? 'text-gray-900' : 'text-gray-500'
                 }`}
                 aria-expanded="false"
@@ -95,7 +95,7 @@ function Navigation() {
                       className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                     >
                       <svg
-                        className="flex-shrink-0 h-6 w-6 text-yellow-vivid-600"
+                        className="flex-shrink-0 h-6 w-6 text-yellow-600"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -120,7 +120,7 @@ function Navigation() {
                       className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                     >
                       <svg
-                        className="flex-shrink-0 h-6 w-6 text-yellow-vivid-600"
+                        className="flex-shrink-0 h-6 w-6 text-yellow-600"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -145,7 +145,7 @@ function Navigation() {
                       className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
                     >
                       <svg
-                        className="flex-shrink-0 h-6 w-6 text-yellow-vivid-600"
+                        className="flex-shrink-0 h-6 w-6 text-yellow-600"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"
@@ -207,7 +207,7 @@ function Navigation() {
               <button
                 onClick={changeOpen}
                 type="button"
-                className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-vivid-500"
+                className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-yellow-500"
               >
                 <span className="sr-only">Menü schließen</span>
                 <svg

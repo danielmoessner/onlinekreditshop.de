@@ -72,7 +72,7 @@ function Page() {
 
   return (
     <Layout>
-      <header className="bg-gray-100">
+      <header className="bg-gray-050">
         <div className="relative overflow-hidden pt-16">
           <Patterns />
           <div className="pb-16 sm:pb-24 relative">
@@ -80,7 +80,7 @@ function Page() {
               <div className="text-center">
                 <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
                   <span className="block">Wir finden den für Sie</span>
-                  <span className="block text-yellow-vivid-600">passenden Kredit</span>
+                  <span className="block text-yellow-600">passenden Kredit</span>
                 </h1>
                 <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
                   Wir helfen Ihnen bei der Baufinanzierung, sowie mit persönlichen Ratenkrediten.
@@ -105,7 +105,7 @@ function Page() {
                       <select
                         id="grund"
                         defaultValue="KAUF"
-                        className="baufilead_finanzierungszweck text-gray-700 mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-yellow-vivid-500 focus:border-yellow-vivid-500 sm:text-sm rounded-md"
+                        className="baufilead_finanzierungszweck text-gray-700 mt-1 block w-full pl-3 pr-10 py-2 text-base border-gray-300 focus:outline-none focus:ring-yellow-500 focus:border-yellow-500 sm:text-sm rounded-md"
                       >
                         <option value="KAUF">Immobilienkauf</option>
                         <option value="BAU">Bauvorhaben</option>
@@ -122,7 +122,7 @@ function Page() {
                           type="number"
                           id="summe"
                           step="10000"
-                          className="baufilead_darlehenssumme placeholder-gray-300 text-gray-700 focus:ring-yellow-vivid-500 focus:border-yellow-vivid-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md"
+                          className="baufilead_darlehenssumme placeholder-gray-300 text-gray-700 focus:ring-yellow-500 focus:border-yellow-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md"
                           placeholder="200000"
                         />
                         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -139,7 +139,7 @@ function Page() {
                           type="number"
                           id="kosten"
                           step="10000"
-                          className="baufilead_anschaffungskosten text-gray-700 placeholder-gray-300 focus:ring-yellow-vivid-500 focus:border-yellow-vivid-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md"
+                          className="baufilead_anschaffungskosten text-gray-700 placeholder-gray-300 focus:ring-yellow-500 focus:border-yellow-500 block w-full pr-12 sm:text-sm border-gray-300 rounded-md"
                           placeholder="100000"
                         />
                         <div className="absolute inset-y-0 right-0 pr-3 flex items-center pointer-events-none">
@@ -155,7 +155,7 @@ function Page() {
                         <input
                           type="number"
                           id="ort"
-                          className="baufilead_postleitzahl shadow-sm placeholder-gray-300 focus:ring-yellow-vivid-500 focus:border-yellow-vivid-500 block w-full sm:text-sm border-gray-300 rounded-md"
+                          className="baufilead_postleitzahl shadow-sm placeholder-gray-300 focus:ring-yellow-500 focus:border-yellow-500 block w-full sm:text-sm border-gray-300 rounded-md"
                           placeholder="90933"
                         />
                       </div>
@@ -164,7 +164,7 @@ function Page() {
                   <button
                     type="submit"
                     onClick={(event) => event.preventDefault()}
-                    className="baufilead_konditionsrechner w-1/5 self-end ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-vivid-600 hover:bg-yellow-vivid-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-vivid-500"
+                    className="baufilead_konditionsrechner w-1/5 self-end ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
                   >
                     Suchen
                   </button>
@@ -195,7 +195,7 @@ function Page() {
             <dl className="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
               <div className="flex">
                 <svg
-                  className="flex-shrink-0 h-6 w-6 text-light-blue-vivid-700"
+                  className="flex-shrink-0 h-6 w-6 text-blue-700"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -217,7 +217,7 @@ function Page() {
                     <div className="block mt-2">
                       <Link
                         to="/baufinanzierung/"
-                        className="text-base font-semibold text-light-blue-vivid-800 hover:text-light-blue-vivid-700"
+                        className="text-base font-semibold text-blue-800 hover:text-blue-700"
                       >
                         Mehr erfahren
                       </Link>
@@ -228,7 +228,7 @@ function Page() {
 
               <div className="flex">
                 <svg
-                  className="flex-shrink-0 h-6 w-6 text-light-blue-vivid-500"
+                  className="flex-shrink-0 h-6 w-6 text-blue-500"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -250,7 +250,7 @@ function Page() {
                     <div className="block mt-2">
                       <Link
                         to="/ratenkredit/"
-                        className="text-base font-semibold text-light-blue-vivid-800 hover:text-light-blue-vivid-700"
+                        className="text-base font-semibold text-blue-800 hover:text-blue-700"
                       >
                         Mehr erfahren
                       </Link>
@@ -261,7 +261,7 @@ function Page() {
 
               <div className="flex">
                 <svg
-                  className="flex-shrink-0 h-6 w-6 text-light-blue-vivid-500"
+                  className="flex-shrink-0 h-6 w-6 text-blue-500"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -285,7 +285,7 @@ function Page() {
                     <div className="block mt-2">
                       <Link
                         to="/finanzierung-ohne-eigenkapital/"
-                        className="text-base font-semibold text-light-blue-vivid-800 hover:text-light-blue-vivid-700"
+                        className="text-base font-semibold text-blue-800 hover:text-blue-700"
                       >
                         Mehr erfahren
                       </Link>
@@ -296,7 +296,7 @@ function Page() {
 
               <div className="flex">
                 <svg
-                  className="flex-shrink-0 h-6 w-6 text-light-blue-vivid-500"
+                  className="flex-shrink-0 h-6 w-6 text-blue-500"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="none"
                   viewBox="0 0 24 24"
@@ -320,7 +320,7 @@ function Page() {
                     <div className="block mt-2">
                       <Link
                         to="/ueber-uns/"
-                        className="text-base font-semibold text-light-blue-vivid-800 hover:text-light-blue-vivid-700"
+                        className="text-base font-semibold text-blue-800 hover:text-blue-700"
                       >
                         Mehr erfahren
                       </Link>
@@ -355,26 +355,20 @@ function Page() {
                       <dt className="order-2 mt-2 leading-6 text-gray-600">
                         Kontakt aufnehmen oder Rechnerformular ausfüllen.
                       </dt>
-                      <dd className="order-1 text-3xl font-extrabold text-light-blue-vivid-800">
-                        1. Kontakt
-                      </dd>
+                      <dd className="order-1 text-3xl font-extrabold text-blue-800">1. Kontakt</dd>
                     </div>
                     <div className="flex flex-col border-t border-b border-gray-100 p-6 sm:border-0 sm:border-l sm:border-r">
                       <dt className="order-2 mt-2 leading-6 text-gray-600">
                         Wir analysieren zusammen Ihre Situation und finden die für Sie am besten
                         passenden Kredite.
                       </dt>
-                      <dd className="order-1 text-3xl font-extrabold text-light-blue-vivid-800">
-                        2. Analyse
-                      </dd>
+                      <dd className="order-1 text-3xl font-extrabold text-blue-800">2. Analyse</dd>
                     </div>
                     <div className="flex flex-col border-t border-gray-100 p-6 sm:border-0 sm:border-l">
                       <dt className="order-2 mt-2 leading-6 text-gray-600">
                         Wir kümmern uns um den Papierkram und Sie bekommen Ihren Kredit.
                       </dt>
-                      <dd className="order-1 text-3xl font-extrabold text-light-blue-vivid-800">
-                        3. Kredit
-                      </dd>
+                      <dd className="order-1 text-3xl font-extrabold text-blue-800">3. Kredit</dd>
                     </div>
                   </dl>
                 </div>
@@ -411,7 +405,7 @@ function Page() {
                 <div className="mt-3">
                   <Link
                     to="/"
-                    className="text-base font-semibold text-light-blue-vivid-800 hover:text-light-blue-vivid-700"
+                    className="text-base font-semibold text-blue-800 hover:text-blue-700"
                   >
                     Artikel lesen
                   </Link>
@@ -431,7 +425,7 @@ function Page() {
                 <div className="mt-3">
                   <Link
                     to="/"
-                    className="text-base font-semibold text-light-blue-vivid-800 hover:text-light-blue-vivid-700"
+                    className="text-base font-semibold text-blue-800 hover:text-blue-700"
                   >
                     Artikel lesen
                   </Link>
@@ -451,7 +445,7 @@ function Page() {
                 <div className="mt-3">
                   <Link
                     to="/"
-                    className="text-base font-semibold text-light-blue-vivid-800 hover:text-light-blue-vivid-700"
+                    className="text-base font-semibold text-blue-800 hover:text-blue-700"
                   >
                     Artikel lesen
                   </Link>
@@ -472,7 +466,7 @@ function Page() {
                 <div className="mt-3">
                   <Link
                     to="/"
-                    className="text-base font-semibold text-light-blue-vivid-800 hover:text-light-blue-vivid-700"
+                    className="text-base font-semibold text-blue-800 hover:text-blue-700"
                   >
                     Artikel lesen
                   </Link>
@@ -487,16 +481,14 @@ function Page() {
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
             <h2 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
               <span className="block">Bereit?</span>
-              <span className="block text-yellow-vivid-600">
-                Jetzt Baufinanzierungskredite suchen.
-              </span>
+              <span className="block text-yellow-600">Jetzt Baufinanzierungskredite suchen.</span>
             </h2>
             <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
               <div className="inline-flex rounded-md shadow" />
               <div className="ml-3 inline-flex rounded-md shadow">
                 <button
                   type="button"
-                  className="baufilead_konditionsrechner inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-vivid-600 ring-offset-gray-800 hover:bg-yellow-vivid-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-vivid-500"
+                  className="baufilead_konditionsrechner inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-600 ring-offset-gray-800 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
                 >
                   Rechner öffnen
                 </button>

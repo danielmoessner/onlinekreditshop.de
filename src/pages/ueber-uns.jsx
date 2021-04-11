@@ -14,7 +14,7 @@ function Page() {
         <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-2 lg:px-8">
           <div className="bg-white py-16 px-4 sm:py-24 sm:px-6 lg:px-0 lg:pr-8">
             <div className="max-w-lg mx-auto lg:mx-0">
-              <h2 className="text-base font-semibold tracking-wide text-light-blue-vivid-700 uppercase">
+              <h2 className="text-base font-semibold tracking-wide text-blue-700 uppercase">
                 Ihr Partner in München
               </h2>
               <p className="mt-2 text-2xl font-extrabold text-gray-900 sm:text-3xl">
@@ -25,7 +25,7 @@ function Page() {
                   <dt>
                     <div className="absolute h-7 w-7 rounded-md flex items-center justify-center">
                       <svg
-                        className="flex-shrink-0 h-6 w-6 text-light-blue-vivid-500"
+                        className="flex-shrink-0 h-6 w-6 text-blue-500"
                         xmlns="http://www.w3.org/2000/svg"
                         fill="none"
                         viewBox="0 0 24 24"

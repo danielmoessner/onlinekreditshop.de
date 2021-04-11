@@ -1,0 +1,7 @@
+collection: setting
+slug: contact
+phone: '12345678'
+email: email@email.de
+address: |-
+  Straße 123
+  90933 München

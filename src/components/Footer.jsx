@@ -3,10 +3,8 @@ import { Link } from 'gatsby';
 
 function Footer() {
   return (
-    <footer className="bg-gray-800" aria-labelledby="footerHeading">
-      <h2 id="footerHeading" className="sr-only">
-        Footer
-      </h2>
+    <footer className="bg-gray-800 relative">
+      <h2 className="sr-only">Footer</h2>
       <div className="max-w-7xl mx-auto pb-8 px-4 sm:px-6 lg:px-8">
         <div className="border-t-2 border-gray-600 pb-10 pt-12 lg:pt-16">
           <div className=" xl:grid xl:grid-cols-3 xl:gap-8">
