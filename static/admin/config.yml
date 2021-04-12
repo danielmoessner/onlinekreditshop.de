@@ -90,6 +90,13 @@ collections:
               - { label: Titel, name: title, widget: string }
               - { label: Text, name: text, widget: string }
               - { label: Button, name: button, widget: string }
+          - label: CTA
+            name: cta
+            widget: object
+            fields:
+              - { label: Text oben, name: textTop, widget: string }
+              - { label: Text unten, name: textBottom, widget: string }
+              - { label: Button, name: button, widget: string }
 
       - file: content/pages/mortgage.md
         label: Baufinanzierung

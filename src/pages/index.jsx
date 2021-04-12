@@ -397,8 +397,8 @@ function Page({ data }) {
         <div className="bg-gray-800">
           <div className="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
             <h2 className="text-2xl font-extrabold tracking-tight text-white sm:text-3xl">
-              <span className="block">Bereit?</span>
-              <span className="block text-yellow-600">Jetzt Baufinanzierungskredite suchen.</span>
+              <span className="block">{page.cta.textTop}</span>
+              <span className="block text-yellow-600">{page.cta.textBottom}</span>
             </h2>
             <div className="mt-8 flex lg:mt-0 lg:flex-shrink-0">
               <div className="inline-flex rounded-md shadow" />
@@ -407,7 +407,7 @@ function Page({ data }) {
                   type="button"
                   className="baufilead_konditionsrechner inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-600 ring-offset-gray-800 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
                 >
-                  Rechner öffnen
+                  {page.cta.button}
                 </button>
               </div>
             </div>
@@ -482,6 +482,11 @@ export const query = graphql`
       articles {
         title
         text
+        button
+      }
+      cta {
+        textTop
+        textBottom
         button
       }
     }

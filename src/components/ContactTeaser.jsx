@@ -2,32 +2,40 @@ import { useStaticQuery, graphql } from 'gatsby';
 import React from 'react';
 // import PropTypes from 'prop-types';
 // import { Transition } from '@headlessui/react';
+import { GatsbyImage } from 'gatsby-plugin-image';
 import SecondaryButton from './SecondaryButtonA';
 
 function Component() {
   const data = useStaticQuery(graphql`
     {
-      settingsYaml(slug: { eq: "teaser" }) {
+      teaser: settingsYaml(slug: { eq: "teaser" }) {
         buttonText
         buttonLink
         text
       }
+      global: settingsYaml(slug: { eq: "global" }) {
+        logo {
+          childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED, width: 500)
+          }
+        }
+      }
     }
   `);
-  const content = data.settingsYaml;
+  const { teaser, global } = data;
 
   return (
     <div className="relative bg-white rounded-lg shadow-lg">
-      <div className="rounded-t-lg px-6 py-8 sm:px-10 sm:pt-10 sm:pb-5">
-        <img
-          src="https://tailwindui.com/img/logos/workcation-logo-indigo-600-mark-gray-800-and-indigo-600-text.svg"
-          alt="Workcation"
-          className="h-8"
+      <div className="rounded-t-lg px-6 py-8 sm:px-10 sm:pt-8 sm:pb-5">
+        <GatsbyImage
+          className="w-32 h-auto sm:w-48"
+          image={global.logo.childImageSharp.gatsbyImageData}
+          alt="Logo"
         />
         <div className="relative text-lg text-gray-700 font-medium mt-8">
-          <p className="relative">{content.text}</p>
+          <p className="relative">{teaser.text}</p>
           <div className="mt-5 text-base">
-            <SecondaryButton href={content.buttonLink}>{content.buttonText}</SecondaryButton>
+            <SecondaryButton href={teaser.buttonLink}>{teaser.buttonText}</SecondaryButton>
           </div>
         </div>
       </div>
