@@ -1,6 +1,9 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, graphql } from 'gatsby';
+import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
+import ArticleItem from '../components/ArticleItem';
+import Seo from '../components/Seo';
 
 function Patterns() {
   return (
@@ -67,11 +70,18 @@ function Patterns() {
   );
 }
 
-function Page() {
+function Page({ data }) {
   // const homePage = data.pagesYaml;
+  const page = data.pagesYaml;
+  const articles = data.allMarkdownRemark.nodes.map((node) => node.frontmatter);
 
   return (
     <Layout>
+      <Seo
+        title={page.meta.title}
+        description={page.meta.description}
+        image={page.meta.image.childImageSharp.resize.src}
+      />
       <header className="bg-gray-050">
         <div className="relative overflow-hidden pt-16">
           <Patterns />
@@ -79,11 +89,11 @@ function Page() {
             <div className="pt-16 mx-auto max-w-7xl px-4 sm:pt-24 sm:px-6">
               <div className="text-center">
                 <h1 className="text-4xl tracking-tight font-extrabold text-gray-900 sm:text-5xl md:text-6xl">
-                  <span className="block">Wir finden den für Sie</span>
-                  <span className="block text-yellow-600">passenden Kredit</span>
+                  <span className="block">{page.header.title}</span>
+                  <span className="block text-yellow-600">{page.header.titleColor}</span>
                 </h1>
                 <p className="mt-3 max-w-md mx-auto text-base text-gray-500 sm:text-lg md:mt-5 md:text-xl md:max-w-3xl">
-                  Wir helfen Ihnen bei der Baufinanzierung, sowie mit persönlichen Ratenkrediten.
+                  {page.header.text}
                 </p>
               </div>
             </div>
@@ -96,12 +106,12 @@ function Page() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6">
               <div className="bg-white pt-6 pb-8 px-8 relative rounded-lg shadow-lg">
                 <h2 className="text-3xl tracking-tight font-bold text-gray-900">
-                  Baufinanzierungskredit suchen:
+                  {page.form.title}
                 </h2>
                 <form action="" className="flex flex-nowrap space-x-4 mt-8">
                   <div className="w-1/5">
                     <label htmlFor="grund" className="block text-sm font-medium text-gray-700">
-                      Finanzierungsgrund
+                      {page.form.label1}
                       <select
                         id="grund"
                         defaultValue="KAUF"
@@ -116,7 +126,7 @@ function Page() {
                   </div>
                   <div className="w-1/5">
                     <label htmlFor="summe" className="block text-sm font-medium text-gray-700">
-                      Darlehenssumme
+                      {page.form.label2}
                       <div className="mt-1 relative rounded-md shadow-sm">
                         <input
                           type="number"
@@ -133,7 +143,7 @@ function Page() {
                   </div>
                   <div className="w-1/5">
                     <label htmlFor="kosten" className="block text-sm font-medium text-gray-700">
-                      Kosten der Immobilie
+                      {page.form.label3}
                       <div className="mt-1 relative rounded-md shadow-sm">
                         <input
                           type="number"
@@ -150,7 +160,7 @@ function Page() {
                   </div>
                   <div className="w-1/5">
                     <label htmlFor="ort" className="block text-sm font-medium text-gray-700">
-                      PLZ der Immobilie
+                      {page.form.label4}
                       <div className="mt-1">
                         <input
                           type="number"
@@ -166,7 +176,7 @@ function Page() {
                     onClick={(event) => event.preventDefault()}
                     className="baufilead_konditionsrechner w-1/5 self-end ml-3 inline-flex justify-center py-2 px-4 border border-transparent shadow-sm text-sm font-medium rounded-md text-white bg-yellow-600 hover:bg-yellow-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500"
                   >
-                    Suchen
+                    {page.form.button}
                   </button>
                 </form>
               </div>
@@ -176,7 +186,7 @@ function Page() {
         <div className="bg-gray-800">
           <div className="max-w-7xl mx-auto py-16 px-4 sm:py-16 sm:px-6 lg:px-8">
             <p className="text-center text-gray-400 text-sm font-semibold uppercase tracking-wide">
-              Bereits mehr als 2344 Bauvorhaben finanziert.
+              {page.form.subtext}
             </p>
           </div>
         </div>
@@ -186,11 +196,9 @@ function Page() {
           <div className="max-w-7xl mx-auto py-16 px-4 sm:px-6 lg:py-24 lg:px-8">
             <div className="max-w-3xl mx-auto text-center">
               <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                Unser Angebot für Sie
+                {page.offer.title}
               </h2>
-              <p className="mt-4 text-lg text-gray-500">
-                Baufinanzierungskredite, Ratenkredite und Finanzierung ohne Eigenkapital
-              </p>
+              <p className="mt-4 text-lg text-gray-500">{page.offer.text}</p>
             </div>
             <dl className="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
               <div className="flex">
@@ -338,38 +346,26 @@ function Page() {
           <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div className="max-w-4xl mx-auto text-center">
               <h2 className="text-3xl font-extrabold text-gray-900 sm:text-4xl">
-                Die Schritte zu Ihrem Kredit
+                {page.plan.title}
               </h2>
-              <p className="mt-3 text-lg text-gray-500 sm:mt-4">
-                Wie kommen Sie zu Ihrem Wunschkredit?
-              </p>
+              <p className="mt-3 text-lg text-gray-500 sm:mt-4">{page.plan.text}</p>
             </div>
           </div>
           <div className="mt-10 pb-16 sm:pb-28">
             <div className="relative">
-              {/* <div className="absolute inset-0 h-1/2 bg-gray-50" /> */}
               <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="max-w-4xl mx-auto">
-                  <dl className="rounded-lg bg-white shadow-lg sm:grid sm:grid-cols-3">
-                    <div className="flex flex-col border-b border-gray-100 p-6 sm:border-0 sm:border-r">
-                      <dt className="order-2 mt-2 leading-6 text-gray-600">
-                        Kontakt aufnehmen oder Rechnerformular ausfüllen.
-                      </dt>
-                      <dd className="order-1 text-3xl font-extrabold text-blue-800">1. Kontakt</dd>
-                    </div>
-                    <div className="flex flex-col border-t border-b border-gray-100 p-6 sm:border-0 sm:border-l sm:border-r">
-                      <dt className="order-2 mt-2 leading-6 text-gray-600">
-                        Wir analysieren zusammen Ihre Situation und finden die für Sie am besten
-                        passenden Kredite.
-                      </dt>
-                      <dd className="order-1 text-3xl font-extrabold text-blue-800">2. Analyse</dd>
-                    </div>
-                    <div className="flex flex-col border-t border-gray-100 p-6 sm:border-0 sm:border-l">
-                      <dt className="order-2 mt-2 leading-6 text-gray-600">
-                        Wir kümmern uns um den Papierkram und Sie bekommen Ihren Kredit.
-                      </dt>
-                      <dd className="order-1 text-3xl font-extrabold text-blue-800">3. Kredit</dd>
-                    </div>
+                  <dl
+                    className={`rounded-lg bg-white shadow-lg divide-y-2 divide-gray-050 md:divide-y-0 md:divide-x-2 md:grid ${
+                      page.plan.steps.length === 3 ? 'md:grid-cols-3' : 'md:grid-cols-4'
+                    }`}
+                  >
+                    {page.plan.steps.map((step) => (
+                      <div key={step.title} className="flex flex-col p-6">
+                        <dt className="text-3xl font-extrabold text-blue-800">{step.title}</dt>
+                        <dd className="mt-2 leading-6 text-gray-600">{step.text}</dd>
+                      </div>
+                    ))}
                   </dl>
                 </div>
               </div>
@@ -383,95 +379,16 @@ function Page() {
           <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl">
             <div>
               <h2 className="text-3xl tracking-tight font-extrabold text-gray-900 sm:text-4xl">
-                Ratgeber
+                {page.articles.title}
               </h2>
               <div className="mt-3 sm:mt-4 lg:grid lg:grid-cols-2 lg:gap-5 lg:items-center">
-                <p className="text-xl text-gray-500">
-                  Unser Ratgeber hilft Ihnen mit Artikeln zur Immobilienfinazierung und
-                  Anschlussfinanzierung.
-                </p>
+                <p className="text-xl text-gray-500">{page.articles.text}</p>
               </div>
             </div>
             <div className="mt-6 pt-10 grid gap-16 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
-              <div>
-                <Link to="/" className="mt-2 block">
-                  <p className="text-xl font-semibold text-gray-900">Boost your conversion rate</p>
-                  <p className="mt-3 text-base text-gray-500">
-                    Illo sint voluptas. Error voluptates culpa eligendi. Hic vel totam vitae illo.
-                    Non aliquid explicabo necessitatibus unde. Sed exercitationem placeat
-                    consectetur nulla deserunt vel. Iusto corrupti dicta.
-                  </p>
-                </Link>
-                <div className="mt-3">
-                  <Link
-                    to="/"
-                    className="text-base font-semibold text-blue-800 hover:text-blue-700"
-                  >
-                    Artikel lesen
-                  </Link>
-                </div>
-              </div>
-
-              <div>
-                <Link to="/" className="mt-2 block">
-                  <p className="text-xl font-semibold text-gray-900">
-                    How to use search engine optimization to drive sales
-                  </p>
-                  <p className="mt-3 text-base text-gray-500">
-                    Optio cum necessitatibus dolor voluptatum provident commodi et. Qui aperiam
-                    fugiat nemo cumque.
-                  </p>
-                </Link>
-                <div className="mt-3">
-                  <Link
-                    to="/"
-                    className="text-base font-semibold text-blue-800 hover:text-blue-700"
-                  >
-                    Artikel lesen
-                  </Link>
-                </div>
-              </div>
-
-              <div>
-                <Link to="/" className="mt-2 block">
-                  <p className="text-xl font-semibold text-gray-900">
-                    Improve your customer experience
-                  </p>
-                  <p className="mt-3 text-base text-gray-500">
-                    Cupiditate maiores ullam eveniet adipisci in doloribus nulla minus. Voluptas
-                    iusto libero adipisci rem et corporis.
-                  </p>
-                </Link>
-                <div className="mt-3">
-                  <Link
-                    to="/"
-                    className="text-base font-semibold text-blue-800 hover:text-blue-700"
-                  >
-                    Artikel lesen
-                  </Link>
-                </div>
-              </div>
-
-              <div>
-                <Link to="/" className="mt-2 block">
-                  <p className="text-xl font-semibold text-gray-900">
-                    Writing effective landing page copy
-                  </p>
-                  <p className="mt-3 text-base text-gray-500">
-                    Ipsum voluptates quia doloremque culpa qui eius. Id qui id officia molestias
-                    quaerat deleniti. Qui facere numquam autem libero quae cupiditate asperiores
-                    vitae cupiditate. Cumque id deleniti explicabo.
-                  </p>
-                </Link>
-                <div className="mt-3">
-                  <Link
-                    to="/"
-                    className="text-base font-semibold text-blue-800 hover:text-blue-700"
-                  >
-                    Artikel lesen
-                  </Link>
-                </div>
-              </div>
+              {articles.map((article) => (
+                <ArticleItem key={article.slug} article={article} button={page.articles.button} />
+              ))}
             </div>
           </div>
         </div>
@@ -498,7 +415,6 @@ function Page() {
         </div>
       </section>
       <script
-        async
         type="text/javascript"
         src="https://www.baufi-lead.de/baufilead/partner/dvvEderFNPvzhryAcDJwqVsqxpCjmC/imports.js"
       />
@@ -507,50 +423,67 @@ function Page() {
 }
 
 Page.propTypes = {
-  // eslint-disable-next-line react/forbid-prop-types
-  // data: PropTypes.object.isRequired,
+  // eslint-disable-next-line
+  data: PropTypes.object.isRequired,
 };
 
 export default Page;
 
-// export const query = graphql`
-//   {
-//     allMarkdownRemark(filter: { frontmatter: { collection: { eq: "animal" } } }) {
-//       edges {
-//         node {
-//           frontmatter {
-//             slug
-//             excerpt
-//             category
-//             title
-//             image {
-//               childImageSharp {
-//                 fluid {
-//                   aspectRatio
-//                   base64
-//                   sizes
-//                   src
-//                   srcSet
-//                 }
-//               }
-//             }
-//           }
-//           id
-//         }
-//       }
-//     }
-//     pagesYaml(slug: { eq: "home" }) {
-//       meta {
-//         image {
-//           childImageSharp {
-//             resize(width: 1200) {
-//               src
-//             }
-//           }
-//         }
-//         description
-//         title
-//       }
-//     }
-//   }
-// `;
+export const query = graphql`
+  {
+    allMarkdownRemark(filter: { frontmatter: { collection: { eq: "article" } } }) {
+      nodes {
+        frontmatter {
+          category
+          slug
+          title
+          shortDescription
+        }
+      }
+    }
+    pagesYaml(slug: { eq: "home" }) {
+      meta {
+        title
+        description
+        image {
+          childImageSharp {
+            resize(width: 1200) {
+              src
+            }
+          }
+        }
+      }
+      header {
+        title
+        titleColor
+        text
+      }
+      form {
+        title
+        label1
+        label2
+        label3
+        label4
+        button
+        subtext
+      }
+      offer {
+        title
+        text
+      }
+      plan {
+        title
+        text
+        steps {
+          title
+          text
+        }
+      }
+      articles {
+        title
+        text
+        button
+      }
+    }
+  }
+`;

@@ -1,8 +1,21 @@
 import React, { useState } from 'react';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
 import { Transition } from '@headlessui/react';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 function Navigation() {
+  const data = useStaticQuery(graphql`
+    {
+      settingsYaml(slug: { eq: "global" }) {
+        logo {
+          childImageSharp {
+            gatsbyImageData(layout: CONSTRAINED, width: 320)
+          }
+        }
+      }
+    }
+  `);
+
   const [isOpen, setIsOpen] = useState(false);
   const [offerOpen, setOfferOpen] = useState(false);
 
@@ -16,12 +29,11 @@ function Navigation() {
         <div className="relative flex items-center justify-between sm:h-10 md:justify-center">
           <div className="flex items-center flex-1 md:absolute md:inset-y-0 md:left-0">
             <div className="flex items-center justify-between w-full md:w-auto">
-              <Link to="/">
-                <span className="sr-only">Workflow</span>
-                <img
-                  className="h-8 w-auto sm:h-10"
-                  src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                  alt=""
+              <Link className="block" to="/">
+                <GatsbyImage
+                  className="w-20 h-auto sm:w-40"
+                  image={data.settingsYaml.logo.childImageSharp.gatsbyImageData}
+                  alt="Logo"
                 />
               </Link>
               <div className="-mr-2 flex items-center md:hidden">
@@ -197,10 +209,10 @@ function Navigation() {
         <div className="rounded-lg shadow-md bg-white ring-1 ring-black ring-opacity-5 overflow-hidden">
           <div className="px-5 pt-4 flex items-center justify-between">
             <div>
-              <img
-                className="h-8 w-auto"
-                src="https://tailwindui.com/img/logos/workflow-mark-indigo-600.svg"
-                alt=""
+              <GatsbyImage
+                className="w-20 h-auto"
+                image={data.settingsYaml.logo.childImageSharp.gatsbyImageData}
+                alt="Logo"
               />
             </div>
             <div className="-mr-2">

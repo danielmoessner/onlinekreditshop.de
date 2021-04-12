@@ -1,18 +1,37 @@
 import React from 'react';
-import { Link } from 'gatsby';
+import { Link, useStaticQuery, graphql } from 'gatsby';
+import lineBreaks from '../utils/lineBreaks';
 
 function Footer() {
+  const data = useStaticQuery(graphql`
+    {
+      contact: settingsYaml(slug: { eq: "contact" }) {
+        address
+        phone
+        email
+      }
+      footer: settingsYaml(slug: { eq: "footer" }) {
+        column1
+        column2
+        column3
+        column4
+        copyright
+      }
+    }
+  `);
+  const { contact, footer } = data;
+
   return (
     <footer className="bg-gray-800 relative">
       <h2 className="sr-only">Footer</h2>
       <div className="max-w-7xl mx-auto pb-8 px-4 sm:px-6 lg:px-8">
         <div className="border-t-2 border-gray-600 pb-10 pt-12 lg:pt-16">
-          <div className=" xl:grid xl:grid-cols-3 xl:gap-8">
-            <div className="grid grid-cols-2 gap-8 xl:col-span-2">
+          <div className=" xl:grid xl:grid-cols-4 xl:gap-8">
+            <div className="grid sm:grid-cols-2 gap-8 xl:col-span-3">
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
                   <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                    Angebot
+                    {footer.column1}
                   </h3>
                   <ul className="mt-4 space-y-4">
                     <li>
@@ -40,7 +59,7 @@ function Footer() {
                 </div>
                 <div className="mt-12 md:mt-0">
                   <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                    Navigation
+                    {footer.column2}
                   </h3>
                   <ul className="mt-4 space-y-4">
                     <li>
@@ -72,29 +91,9 @@ function Footer() {
               <div className="md:grid md:grid-cols-2 md:gap-8">
                 <div>
                   <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                    Kontakt
+                    {footer.column3}
                   </h3>
                   <ul className="mt-4 space-y-4 text-gray-300">
-                    <li className="flex items-center">
-                      <svg
-                        className="w-5 h-5 flex-shrink-0 mr-2"
-                        xmlns="http://www.w3.org/2000/svg"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth="2"
-                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
-                        />
-                      </svg>
-                      <Link to="/" className="text-base text-gray-300 hover:text-white">
-                        kontakt@beispiel.de
-                      </Link>
-                    </li>
-
                     <li className="flex items-center">
                       <svg
                         className="w-5 h-5 flex-shrink-0 mr-2"
@@ -110,9 +109,35 @@ function Footer() {
                           d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"
                         />
                       </svg>
-                      <Link to="/" className="text-base text-gray-300 hover:text-white">
-                        089 9876543
-                      </Link>
+                      <a
+                        href={`tel:${contact.phone}`}
+                        className="text-base text-gray-300 hover:text-white"
+                      >
+                        {contact.phone}
+                      </a>
+                    </li>
+
+                    <li className="flex items-center">
+                      <svg
+                        className="w-5 h-5 flex-shrink-0 mr-2"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth="2"
+                          d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"
+                        />
+                      </svg>
+                      <a
+                        href={`mailto:${contact.email}`}
+                        className="text-base text-gray-300 hover:text-white"
+                      >
+                        {contact.email}
+                      </a>
                     </li>
 
                     <li className="flex">
@@ -137,18 +162,17 @@ function Footer() {
                         />
                       </svg>
                       <address>
-                        <p>
-                          Dachauer Str. x
-                          <br />
-                          80993 München
-                        </p>
+                        <p
+                          // eslint-disable-next-line
+                          dangerouslySetInnerHTML={{ __html: lineBreaks(contact.address) }}
+                        />
                       </address>
                     </li>
                   </ul>
                 </div>
                 <div className="mt-12 md:mt-0">
                   <h3 className="text-sm font-semibold text-gray-400 tracking-wider uppercase">
-                    Rechtliches
+                    {footer.column4}
                   </h3>
                   <ul className="mt-4 space-y-4">
                     <li>
@@ -169,7 +193,8 @@ function Footer() {
         </div>
         <div className="mt-8 border-t border-gray-700 pt-8 md:flex md:items-center md:justify-between">
           <p className="mt-8 text-base text-gray-400 md:mt-0 md:order-1">
-            &copy; Online Kreditshop
+            <span>&copy; </span>
+            {footer.copyright}
           </p>
         </div>
       </div>
