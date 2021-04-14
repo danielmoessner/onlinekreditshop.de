@@ -6,22 +6,42 @@ exports.createPages = async ({ graphql, actions }) => {
   // Create the animal pages
   const result = await graphql(`
     query {
-      allMarkdownRemark(filter: { frontmatter: { collection: { eq: "article" } } }) {
-        edges {
-          node {
-            frontmatter {
-              slug
-            }
-            id
+      articles: allMarkdownRemark(filter: { frontmatter: { collection: { eq: "article" } } }) {
+        nodes {
+          frontmatter {
+            slug
           }
+          id
+        }
+      }
+      calculators: allMarkdownRemark(
+        filter: { frontmatter: { collection: { eq: "calculator" } } }
+      ) {
+        nodes {
+          frontmatter {
+            slug
+          }
+          id
         }
       }
     }
   `);
-  result.data.allMarkdownRemark.edges.forEach(({ node }) => {
+  result.data.articles.nodes.forEach((node) => {
     createPage({
       path: `ratgeber/${node.frontmatter.slug}/`,
       component: path.resolve(`./src/templates/article.jsx`),
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: node.frontmatter.slug,
+        id: node.id,
+      },
+    });
+  });
+  result.data.calculators.nodes.forEach((node) => {
+    createPage({
+      path: `rechner/${node.frontmatter.slug}/`,
+      component: path.resolve(`./src/templates/calculator.jsx`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
