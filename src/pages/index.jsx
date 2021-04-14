@@ -415,6 +415,7 @@ function Page({ data }) {
         </div>
       </section>
       <script
+        defer
         type="text/javascript"
         src="https://www.baufi-lead.de/baufilead/partner/dvvEderFNPvzhryAcDJwqVsqxpCjmC/imports.js"
       />

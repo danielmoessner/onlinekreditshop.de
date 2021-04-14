@@ -13,11 +13,20 @@ function Navigation() {
           }
         }
       }
+      allMarkdownRemark(filter: { frontmatter: { collection: { eq: "calculator" } } }) {
+        nodes {
+          frontmatter {
+            title
+            slug
+          }
+        }
+      }
     }
   `);
-
+  const calculators = data.allMarkdownRemark.nodes.map((node) => node.frontmatter);
   const [isOpen, setIsOpen] = useState(false);
   const [offerOpen, setOfferOpen] = useState(false);
+  const [calculatorOpen, setCalculatorOpen] = useState(false);
 
   function changeOpen() {
     setIsOpen(!isOpen);
@@ -190,6 +199,59 @@ function Navigation() {
             <Link to="/ratgeber/" className="font-medium text-gray-500 hover:text-gray-900">
               Ratgeber
             </Link>
+            <div className="relative">
+              <button
+                onClick={() => setCalculatorOpen(!calculatorOpen)}
+                type="button"
+                className={`group rounded-md inline-flex items-center text-base font-medium ring-offset-gray-050 hover:text-gray-900 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-yellow-500 ${
+                  calculatorOpen ? 'text-gray-900' : 'text-gray-500'
+                }`}
+                aria-expanded="false"
+              >
+                <span>Rechner</span>
+                <svg
+                  className={`ml-2 h-5 w-5 group-hover:text-gray-500 ${
+                    calculatorOpen ? 'text-gray-600' : 'text-gray-400'
+                  }`}
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  aria-hidden="true"
+                >
+                  <path
+                    fillRule="evenodd"
+                    d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                    clipRule="evenodd"
+                  />
+                </svg>
+              </button>
+              <Transition
+                show={calculatorOpen}
+                enter="transition ease-out duration-200"
+                enterFrom="opacity-0 translate-y-1"
+                enterTo="opacity-100 translate-y-0"
+                leave="transition ease-in duration-150"
+                from="opacity-100 translate-y-0"
+                to="opacity-0 translate-y-1"
+                className="absolute -ml-4 mt-3 transform z-10 px-2 w-screen max-w-md sm:px-0 lg:ml-0 lg:left-1/2 lg:-translate-x-1/2"
+              >
+                <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 overflow-hidden">
+                  <div className="relative grid gap-6 bg-white px-5 py-6 sm:gap-8 sm:p-8">
+                    {calculators.map((calculator) => (
+                      <Link
+                        key={calculator.slug}
+                        to={`/rechner/${calculator.slug}/`}
+                        className="-m-3 p-3 flex items-start rounded-lg hover:bg-gray-50"
+                      >
+                        <div className="">
+                          <p className="text-base font-medium text-gray-900">{calculator.title}</p>
+                        </div>
+                      </Link>
+                    ))}
+                  </div>
+                </div>
+              </Transition>
+            </div>
             <Link to="/kontakt/" className="font-medium text-gray-500 hover:text-gray-900">
               Kontakt
             </Link>
@@ -277,6 +339,15 @@ function Navigation() {
             >
               Ratgeber
             </Link>
+            {calculators.map((calculator) => (
+              <Link
+                key={calculator.slug}
+                to={`/rechner/${calculator.slug}/`}
+                className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
+              >
+                Rechner: {calculator.title}
+              </Link>
+            ))}
             <Link
               to="/kontakt/"
               className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-gray-900 hover:bg-gray-50"
