@@ -1,7 +1,6 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import ArticleItem from '../components/ArticleItem';
 import Seo from '../components/Seo';
@@ -76,6 +75,20 @@ function Page({ data }) {
   const page = data.pagesYaml;
   const articles = data.allMarkdownRemark.nodes.map((node) => node.frontmatter);
 
+  useEffect(() => {
+    // eslint-disable-next-line
+    const doc = document
+    if (doc.getElementById('baufi-lead-script')) {
+      doc.getElementById('baufi-lead-script').remove();
+    }
+    const script = doc.createElement('script');
+    script.id = 'baufi-lead-script';
+    script.src =
+      'https://www.baufi-lead.de/baufilead/partner/dvvEderFNPvzhryAcDJwqVsqxpCjmC/imports.js';
+    script.defer = true;
+    doc.body.append(script);
+  }, []);
+
   return (
     <Layout>
       <Seo
@@ -83,13 +96,6 @@ function Page({ data }) {
         description={page.meta.description}
         image={page.meta.image.childImageSharp.resize.src}
       />
-      <Helmet>
-        <script
-          defer
-          type="text/javascript"
-          src="https://www.baufi-lead.de/baufilead/partner/dvvEderFNPvzhryAcDJwqVsqxpCjmC/imports.js"
-        />
-      </Helmet>
       <header className="bg-gray-050">
         <div className="relative overflow-hidden pt-16">
           <Patterns />
