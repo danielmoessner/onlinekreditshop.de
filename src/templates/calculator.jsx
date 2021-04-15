@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
-import Helmet from 'react-helmet';
+// import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
 import PrimaryButtonB from '../components/PrimaryButtonB';
@@ -9,16 +9,23 @@ import PrimaryButtonB from '../components/PrimaryButtonB';
 function Page({ data }) {
   const calculator = { ...data.markdownRemark.frontmatter };
 
+  useEffect(() => {
+    // eslint-disable-next-line
+    const doc = document
+    if (doc.getElementById('baufi-lead-script')) {
+      doc.getElementById('baufi-lead-script').remove();
+    }
+    const script = doc.createElement('script');
+    script.id = 'baufi-lead-script';
+    script.src =
+      'https://www.baufi-lead.de/baufilead/partner/dvvEderFNPvzhryAcDJwqVsqxpCjmC/imports.js';
+    script.defer = true;
+    doc.body.append(script);
+  }, []);
+
   return (
     <Layout>
       <Seo title={calculator.title} description={calculator.description} />
-      <Helmet>
-        <script
-          defer
-          type="text/javascript"
-          src="https://www.baufi-lead.de/baufilead/partner/dvvEderFNPvzhryAcDJwqVsqxpCjmC/imports.js"
-        />
-      </Helmet>
       <div className="bg-white overflow-hidden pt-20">
         <div className="relative max-w-7xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:px-8">
           <div className="hidden lg:block bg-gray-50 fixed z-0 top-0 bottom-0 left-3/4 w-screen" />
