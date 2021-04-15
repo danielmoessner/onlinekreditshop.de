@@ -6,7 +6,7 @@ import { de } from 'netlify-cms-locales';
 // import Animal from '../components/Animal';
 // import AnimalCard from '../components/AnimalCard';
 // import Container from '../components/Container';
-import '../styles/global.css';
+// import '../styles/global.css';
 
 // Localization
 CMS.registerLocale('de', de);

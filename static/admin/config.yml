@@ -255,11 +255,33 @@ collections:
               - { label: Text, name: text, widget: text }
               - { label: Maps, name: maps, widget: string }
 
+      - file: content/pages/imprint.md
+        name: imprint
+        label: Impressum
+        fields:
+          - { label: Sammlung, name: collection, widget: hidden, default: page }
+          - { label: Slug, name: slug, widget: hidden, default: imprint }
+          - { label: Titel, name: title, widget: string }
+          - { label: Kategorie, name: category, widget: string }
+          - { label: Beschreibung, name: description, widget: text }
+          - { label: Inhalt, name: body, widget: markdown }
+    
+      - file: content/pages/dataProtection.md
+        name: dataProtection
+        label: Datenschutz
+        fields:
+          - { label: Sammlung, name: collection, widget: hidden, default: page }
+          - { label: Slug, name: slug, widget: hidden, default: data-protection }
+          - { label: Titel, name: title, widget: string }
+          - { label: Kategorie, name: category, widget: string }
+          - { label: Beschreibung, name: description, widget: text }
+          - { label: Inhalt, name: body, widget: markdown }
+
   - name: article
     label: Ratgeber
     label_singular: Ratgeber
     editor:
-      preview: true
+      preview: false
     folder: content/article
     slug: '{{fields.slug}}'
     create: true
@@ -284,6 +306,7 @@ collections:
     fields:
       - { label: Sammlung, name: collection, widget: hidden, default: calculator }
       - { label: Titel, name: title, widget: string }
+      - { label: Sortierung, name: order, widget: number }
       - { label: Beschreibung, name: description, widget: text }
       - { label: Slug, name: slug, widget: string }
       - { label: Kategorie, name: category, widget: string }

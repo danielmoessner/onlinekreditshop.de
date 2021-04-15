@@ -13,7 +13,10 @@ function Navigation() {
           }
         }
       }
-      allMarkdownRemark(filter: { frontmatter: { collection: { eq: "calculator" } } }) {
+      allMarkdownRemark(
+        filter: { frontmatter: { collection: { eq: "calculator" } } }
+        sort: { fields: frontmatter___order }
+      ) {
         nodes {
           frontmatter {
             title

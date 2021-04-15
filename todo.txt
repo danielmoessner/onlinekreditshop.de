@@ -1,9 +1,10 @@
-- startseite ins admin
-- über uns in admin
+- startseite ins admin es fehlt bei leistungen noch der zugehörige admin bereich
+
 - ratenkredit
 - finanzierung ohne eigenkapital
 - baufinanzierung button rechner öffnen
-- impressum in admin
-- datenschutz in admin
+
 - components button usw wenn nötig
 - logo 
+- rechner einstellen
+- rechner kombinieren mit buttons bei den angeboten
