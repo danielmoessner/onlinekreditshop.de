@@ -38,7 +38,7 @@ function Page({ data }) {
   const contact = data.settingsYaml;
 
   return (
-    <Layout>
+    <Layout overflowHidden>
       <Seo
         title={page.meta.title}
         description={page.meta.description}
@@ -46,7 +46,7 @@ function Page({ data }) {
       />
       <Header title={page.header.title} text={page.header.text} />
       <section className="relative bg-gray-100">
-        <div className="absolute w-full h-1/2 bg-gray-050" aria-hidden="true" />
+        <div className="absolute w-full overflow-hidden h-1/2 bg-gray-050" aria-hidden="true" />
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <Pattern />
         </div>

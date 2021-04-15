@@ -1,8 +1,10 @@
 import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import Seo from '../components/Seo';
+import PrimaryButtonB from '../components/PrimaryButtonB';
 
 function Page({ data }) {
   const calculator = { ...data.markdownRemark.frontmatter };
@@ -10,6 +12,13 @@ function Page({ data }) {
   return (
     <Layout>
       <Seo title={calculator.title} description={calculator.description} />
+      <Helmet>
+        <script
+          defer
+          type="text/javascript"
+          src="https://www.baufi-lead.de/baufilead/partner/dvvEderFNPvzhryAcDJwqVsqxpCjmC/imports.js"
+        />
+      </Helmet>
       <div className="bg-white overflow-hidden pt-20">
         <div className="relative max-w-7xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:px-8">
           <div className="hidden lg:block bg-gray-50 fixed z-0 top-0 bottom-0 left-3/4 w-screen" />
@@ -58,17 +67,18 @@ function Page({ data }) {
             <div className="mt-8 lg:mt-0">
               <div className="text-base max-w-prose mx-auto lg:max-w-none">
                 <p className="text-lg text-gray-500 mb-5">{calculator.description}</p>
-                <div className={`${calculator.calculator}`} />
+                <PrimaryButtonB
+                  extraClass={`${calculator.calculator}`}
+                  styleClass="ring-offset-white"
+                >
+                  <div>{calculator.title} öffnen</div>
+                </PrimaryButtonB>
               </div>
               <div className="mt-5 prose prose-blue text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1" />
             </div>
           </div>
         </div>
       </div>
-      <script
-        type="text/javascript"
-        src="https://www.baufi-lead.de/baufilead/partner/dvvEderFNPvzhryAcDJwqVsqxpCjmC/imports.js"
-      />
     </Layout>
   );
 }

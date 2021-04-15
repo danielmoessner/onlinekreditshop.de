@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, graphql } from 'gatsby';
 import PropTypes from 'prop-types';
+import Helmet from 'react-helmet';
 import Layout from '../components/Layout';
 import ArticleItem from '../components/ArticleItem';
 import Seo from '../components/Seo';
@@ -82,6 +83,13 @@ function Page({ data }) {
         description={page.meta.description}
         image={page.meta.image.childImageSharp.resize.src}
       />
+      <Helmet>
+        <script
+          defer
+          type="text/javascript"
+          src="https://www.baufi-lead.de/baufilead/partner/dvvEderFNPvzhryAcDJwqVsqxpCjmC/imports.js"
+        />
+      </Helmet>
       <header className="bg-gray-050">
         <div className="relative overflow-hidden pt-16">
           <Patterns />
@@ -218,16 +226,17 @@ function Page({ data }) {
                   />
                 </svg>
                 <div className="ml-3">
-                  <dt className="text-lg leading-6 font-medium text-gray-900">Baufinanzierung</dt>
+                  <dt className="text-lg leading-6 font-medium text-gray-900">
+                    {page.offer.mortgageTitle}
+                  </dt>
                   <dd className="mt-2 text-base text-gray-500">
-                    Tempor tellus in aliquet eu et sit nulla tellus. Suspendisse est, molestie
-                    blandit quis ac. Lacus.
+                    {page.offer.mortgageText}
                     <div className="block mt-2">
                       <Link
                         to="/baufinanzierung/"
                         className="text-base font-semibold text-blue-800 hover:text-blue-700"
                       >
-                        Mehr erfahren
+                        {page.offer.button}
                       </Link>
                     </div>
                   </dd>
@@ -251,16 +260,17 @@ function Page({ data }) {
                   />
                 </svg>
                 <div className="ml-3">
-                  <dt className="text-lg leading-6 font-medium text-gray-900">Ratenkredite</dt>
+                  <dt className="text-lg leading-6 font-medium text-gray-900">
+                    {page.offer.loanTitle}
+                  </dt>
                   <dd className="mt-2 text-base text-gray-500">
-                    Ornare donec rhoncus vitae nisl velit, neque, mauris dictum duis. Nibh urna non
-                    parturient.
+                    {page.offer.loanText}
                     <div className="block mt-2">
                       <Link
                         to="/ratenkredit/"
                         className="text-base font-semibold text-blue-800 hover:text-blue-700"
                       >
-                        Mehr erfahren
+                        {page.offer.button}
                       </Link>
                     </div>
                   </dd>
@@ -285,17 +295,16 @@ function Page({ data }) {
                 </svg>
                 <div className="ml-3">
                   <dt className="text-lg leading-6 font-medium text-gray-900">
-                    Finanzierung ohne Eigenkapital
+                    {page.offer.financingTitle}
                   </dt>
                   <dd className="mt-2 text-base text-gray-500">
-                    Etiam cras augue ornare pretium sit malesuada morbi orci, venenatis. Dictum
-                    lacus.
+                    {page.offer.financingText}
                     <div className="block mt-2">
                       <Link
                         to="/finanzierung-ohne-eigenkapital/"
                         className="text-base font-semibold text-blue-800 hover:text-blue-700"
                       >
-                        Mehr erfahren
+                        {page.offer.button}
                       </Link>
                     </div>
                   </dd>
@@ -320,17 +329,16 @@ function Page({ data }) {
                 </svg>
                 <div className="ml-3">
                   <dt className="text-lg leading-6 font-medium text-gray-900">
-                    Ihr Partner aus München
+                    {page.offer.aboutTitle}
                   </dt>
                   <dd className="mt-2 text-base text-gray-500">
-                    Interdum quam pulvinar turpis tortor, egestas quis diam amet, natoque. Mauris
-                    sagittis.
+                    {page.offer.aboutText}
                     <div className="block mt-2">
                       <Link
                         to="/ueber-uns/"
                         className="text-base font-semibold text-blue-800 hover:text-blue-700"
                       >
-                        Mehr erfahren
+                        {page.offer.button}
                       </Link>
                     </div>
                   </dd>
@@ -414,11 +422,6 @@ function Page({ data }) {
           </div>
         </div>
       </section>
-      <script
-        defer
-        type="text/javascript"
-        src="https://www.baufi-lead.de/baufilead/partner/dvvEderFNPvzhryAcDJwqVsqxpCjmC/imports.js"
-      />
     </Layout>
   );
 }
@@ -471,6 +474,15 @@ export const query = graphql`
       offer {
         title
         text
+        mortgageTitle
+        mortgageText
+        loanTitle
+        loanText
+        aboutTitle
+        aboutText
+        financingTitle
+        financingText
+        button
       }
       plan {
         title

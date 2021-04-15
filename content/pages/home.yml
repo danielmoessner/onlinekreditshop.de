@@ -18,8 +18,21 @@ form:
   button: Suchen
   subtext: Bereits mehr als 2344 Bauvorhaben finanziert.
 offer:
-  title: Unser Angebot für Sie
+  financingTitle: Finanzierung ohne Eigenkapital
+  financingText: Tempor tellus in aliquet eu et sit nulla tellus. Suspendisse est,
+    molestie blandit quis ac. Lacus.
+  loanTitle: Ratenkredit
+  mortgageText: Tempor tellus in aliquet eu et sit nulla tellus. Suspendisse est,
+    molestie blandit quis ac. Lacus.
+  aboutTitle: Über uns
   text: Baufinanzierungskredite, Ratenkredite und Finanzierung ohne Eigenkapital
+  button: Mehr erfahren
+  title: Unser Angebot für Sie
+  aboutText: Tempor tellus in aliquet eu et sit nulla tellus. Suspendisse est,
+    molestie blandit quis ac. Lacus.
+  mortgageTitle: Baufinanzierung
+  loanText: Tempor tellus in aliquet eu et sit nulla tellus. Suspendisse est,
+    molestie blandit quis ac. Lacus.
 plan:
   steps:
     - title: 1. Kontakt

@@ -6,10 +6,11 @@ meta:
   description: Wir freuen uns darauf Ihnen mit Baufinanzierung ohne Eigenkapital
     helfen zu können.
   image: ../media/boot.jpg
-title: Finanzierung ohne Eigenkapital
-category: Angebot
-shortDescription: Oft liest man, dass für eine Finanzierung zwingend
-  Eigenkapital vorhanden sein sollte. Das ist heute nicht mehr ganz korrekt.
+content:
+  title: Finanzierung ohne Eigenkapital
+  category: Angebot
+  shortDescription: Oft liest man, dass für eine Finanzierung zwingend
+    Eigenkapital vorhanden sein sollte. Das ist heute nicht mehr ganz korrekt.
 ---
 Oft liest man, dass für eine Finanzierung zwingend Eigenkapital vorhanden sein sollte. Das ist heute nicht mehr ganz korrekt. Richtig ist, dass es mehr Banken gibt, die zur Genehmigung einer Finanzierung Eigenkapital benötigen, es gibt aber auch die Banken, die Immobilienfinanzierungen ohne den Einsatz von Eigenkapital ermöglichen.
 

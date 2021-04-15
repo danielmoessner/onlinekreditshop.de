@@ -2,7 +2,6 @@ import React from 'react';
 import { graphql } from 'gatsby';
 import PropTypes from 'prop-types';
 import Layout from '../components/Layout';
-import PrimaryButton from '../components/PrimaryButton';
 import ContactTeaser from '../components/ContactTeaser';
 import Seo from '../components/Seo';
 
@@ -20,14 +19,14 @@ function Page({ data }) {
         <div className="max-w-7xl mx-auto px-4 space-y-8 sm:px-6 lg:px-8">
           <div className="text-base max-w-prose mx-auto lg:max-w-none">
             <p className="text-base text-blue-800 font-semibold tracking-wide uppercase">
-              {page.category}
+              {page.content.category}
             </p>
             <h1 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-              {page.title}
+              {page.content.title}
             </h1>
           </div>
           <div className="relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0 lg:pr-72">
-            <p className="text-lg text-gray-500">{page.shortDescription}</p>
+            <p className="text-lg text-gray-500">{page.content.shortDescription}</p>
           </div>
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
             <div className="relative z-10">
@@ -36,9 +35,6 @@ function Page({ data }) {
                 // eslint-disable-next-line
                 dangerouslySetInnerHTML={{ __html: page.html }}
               />
-              <div className="mt-10 flex text-base max-w-prose mx-auto lg:max-w-none">
-                <PrimaryButton>(todo)</PrimaryButton>
-              </div>
             </div>
             <div className="mt-12 relative text-base max-w-prose mx-auto lg:mt-0 lg:max-w-none">
               <svg
@@ -101,9 +97,11 @@ export const query = graphql`
             }
           }
         }
-        title
-        shortDescription
-        category
+        content {
+          title
+          shortDescription
+          category
+        }
       }
       html
     }
