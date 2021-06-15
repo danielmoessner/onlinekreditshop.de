@@ -19,8 +19,7 @@ form:
   subtext: Bereits mehr als 2344 Bauvorhaben finanziert.
 offer:
   financingTitle: Finanzierung ohne Eigenkapital
-  financingText: Tempor tellus in aliquet eu et sit nulla tellus. Suspendisse est,
-    molestie blandit quis ac. Lacus.
+  financingText: Baufinanzierungen auch ohne Eigenkapital.
   loanTitle: Ratenkredit
   mortgageText: Tempor tellus in aliquet eu et sit nulla tellus. Suspendisse est,
     molestie blandit quis ac. Lacus.
@@ -28,11 +27,10 @@ offer:
   text: Baufinanzierungskredite, Ratenkredite und Finanzierung ohne Eigenkapital
   button: Mehr erfahren
   title: Unser Angebot für Sie
-  aboutText: Tempor tellus in aliquet eu et sit nulla tellus. Suspendisse est,
-    molestie blandit quis ac. Lacus.
+  aboutText: 17 Jahre Erfahrung im Bereich der Finanzierungen.
   mortgageTitle: Baufinanzierung
-  loanText: Tempor tellus in aliquet eu et sit nulla tellus. Suspendisse est,
-    molestie blandit quis ac. Lacus.
+  loanText: Kreditvergleich in Zusammenarbeit mit Check24. Auf Wunsch mit
+    persönlicher Beratung.
 plan:
   steps:
     - title: 1. Kontakt
