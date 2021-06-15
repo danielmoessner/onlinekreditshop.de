@@ -2,7 +2,7 @@
 collection: calculator
 title: Budgetrechner
 order: 1
-description: beschr
+description: Was kann ich mir leisten?
 slug: budgetrechner
 category: Rechner
 calculator: baufilead_budgetrechner
