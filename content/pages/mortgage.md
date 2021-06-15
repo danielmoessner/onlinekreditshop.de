@@ -8,10 +8,9 @@ meta:
 content:
   title: Baufinanzierung
   category: Angebot
-  shortDescription: Sagittis scelerisque nulla cursus in enim consectetur quam.
-    Dictum urna sed consectetur neque tristique pellentesque. Blandit amet, sed
-    aenean erat arcu morbi. Cursus faucibus nunc nisl netus morbi vel porttitor
-    vitae ut. Amet vitae fames senectus vitae.
+  shortDescription: |-
+    Baufinanzierungsvergleich aus über 800 Banken deutschlandweit.
+    Online Konditionen mit persönlicher Beratung.
   calculator: baufilead_leadformular
   button: Rechner öffnen
 ---
