@@ -53,7 +53,7 @@ function Page({ data }) {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="relative shadow-xl">
             <div className="grid grid-cols-1 lg:grid-cols-3 rounded overflow-hidden">
-              <div className="relative overflow-hidden py-10 px-6 bg-gradient-to-b from-yellow-700 to-yellow-800 sm:px-10 xl:p-12">
+              <div className="relative overflow-hidden py-10 px-6 bg-yellow-700 sm:px-10 xl:p-12">
                 <div
                   className="hidden absolute top-0 right-0 bottom-0 w-1/2 pointer-events-none lg:block"
                   aria-hidden="true"
@@ -170,7 +170,7 @@ function Page({ data }) {
                 <iframe
                   title="Ort"
                   src={page.contact.maps}
-                  style={{ border: '0', width: '100%', height: '100%' }}
+                  style={{ border: '0', width: '100%', height: '100%', minHeight: '450px' }}
                   allowFullScreen=""
                   loading="lazy"
                 />

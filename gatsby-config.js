@@ -40,6 +40,7 @@ module.exports = {
         modulePath: `${__dirname}/src/cms/cms.jsx`,
         enableIdentityWidget: true,
         htmlTitle: 'CMS',
+        manualInit: true,
         htmlFavicon: `${__dirname}/static/images/favicon.svg`,
       },
     },

@@ -122,8 +122,8 @@ function Page({ data }) {
                 <h2 className="text-3xl tracking-tight font-bold text-gray-900">
                   {page.form.title}
                 </h2>
-                <form action="" className="flex flex-nowrap space-x-4 mt-8">
-                  <div className="w-1/5">
+                <form className="flex flex-col space-y-6 mt-8 lg:flex-row lg:flex-nowrap lg:space-x-4 lg:space-y-0">
+                  <div className="lg:w-1/5">
                     <label htmlFor="grund" className="block text-sm font-medium text-gray-700">
                       {page.form.label1}
                       <select
@@ -138,7 +138,7 @@ function Page({ data }) {
                       </select>
                     </label>
                   </div>
-                  <div className="w-1/5">
+                  <div className="lg:w-1/5">
                     <label htmlFor="summe" className="block text-sm font-medium text-gray-700">
                       {page.form.label2}
                       <div className="mt-1 relative rounded-md shadow-sm">
@@ -155,7 +155,7 @@ function Page({ data }) {
                       </div>
                     </label>
                   </div>
-                  <div className="w-1/5">
+                  <div className="lg:w-1/5">
                     <label htmlFor="kosten" className="block text-sm font-medium text-gray-700">
                       {page.form.label3}
                       <div className="mt-1 relative rounded-md shadow-sm">
@@ -172,7 +172,7 @@ function Page({ data }) {
                       </div>
                     </label>
                   </div>
-                  <div className="w-1/5">
+                  <div className="lg:w-1/5">
                     <label htmlFor="ort" className="block text-sm font-medium text-gray-700">
                       {page.form.label4}
                       <div className="mt-1">
@@ -215,141 +215,39 @@ function Page({ data }) {
               <p className="mt-4 text-lg text-gray-500">{page.offer.text}</p>
             </div>
             <dl className="mt-12 space-y-10 sm:space-y-0 sm:grid sm:grid-cols-2 sm:gap-x-6 sm:gap-y-12 lg:grid-cols-4 lg:gap-x-8">
-              <div className="flex">
-                <svg
-                  className="flex-shrink-0 h-6 w-6 text-blue-700"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <div className="ml-3">
-                  <dt className="text-lg leading-6 font-medium text-gray-900">
-                    {page.offer.mortgageTitle}
-                  </dt>
-                  <dd className="mt-2 text-base text-gray-500">
-                    {page.offer.mortgageText}
-                    <div className="block mt-2">
-                      <Link
-                        to="/baufinanzierung/"
-                        className="text-base font-semibold text-blue-800 hover:text-blue-700"
-                      >
-                        {page.offer.button}
-                      </Link>
-                    </div>
-                  </dd>
+              {page.offer.offers.map((offer) => (
+                <div className="flex" key={offer.link}>
+                  <svg
+                    className="flex-shrink-0 h-6 w-6 text-blue-700"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth="2"
+                      d="M5 13l4 4L19 7"
+                    />
+                  </svg>
+                  <div className="ml-3">
+                    <dt className="text-lg leading-6 font-medium text-gray-900">{offer.title}</dt>
+                    <dd className="mt-2 text-base text-gray-500">
+                      {offer.text}
+                      <div className="block mt-2">
+                        <Link
+                          to={offer.link}
+                          className="text-base font-semibold text-blue-800 hover:text-blue-700"
+                        >
+                          {page.offer.button}
+                        </Link>
+                      </div>
+                    </dd>
+                  </div>
                 </div>
-              </div>
-
-              <div className="flex">
-                <svg
-                  className="flex-shrink-0 h-6 w-6 text-blue-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <div className="ml-3">
-                  <dt className="text-lg leading-6 font-medium text-gray-900">
-                    {page.offer.loanTitle}
-                  </dt>
-                  <dd className="mt-2 text-base text-gray-500">
-                    {page.offer.loanText}
-                    <div className="block mt-2">
-                      <Link
-                        to="/ratenkredit/"
-                        className="text-base font-semibold text-blue-800 hover:text-blue-700"
-                      >
-                        {page.offer.button}
-                      </Link>
-                    </div>
-                  </dd>
-                </div>
-              </div>
-
-              <div className="flex">
-                <svg
-                  className="flex-shrink-0 h-6 w-6 text-blue-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <div className="ml-3">
-                  <dt className="text-lg leading-6 font-medium text-gray-900">
-                    {page.offer.financingTitle}
-                  </dt>
-                  <dd className="mt-2 text-base text-gray-500">
-                    {page.offer.financingText}
-                    <div className="block mt-2">
-                      <Link
-                        to="/finanzierung-ohne-eigenkapital/"
-                        className="text-base font-semibold text-blue-800 hover:text-blue-700"
-                      >
-                        {page.offer.button}
-                      </Link>
-                    </div>
-                  </dd>
-                </div>
-              </div>
-
-              <div className="flex">
-                <svg
-                  className="flex-shrink-0 h-6 w-6 text-blue-500"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth="2"
-                    d="M5 13l4 4L19 7"
-                  />
-                </svg>
-                <div className="ml-3">
-                  <dt className="text-lg leading-6 font-medium text-gray-900">
-                    {page.offer.aboutTitle}
-                  </dt>
-                  <dd className="mt-2 text-base text-gray-500">
-                    {page.offer.aboutText}
-                    <div className="block mt-2">
-                      <Link
-                        to="/ueber-uns/"
-                        className="text-base font-semibold text-blue-800 hover:text-blue-700"
-                      >
-                        {page.offer.button}
-                      </Link>
-                    </div>
-                  </dd>
-                </div>
-              </div>
+              ))}
             </dl>
           </div>
         </div>
@@ -480,14 +378,11 @@ export const query = graphql`
       offer {
         title
         text
-        mortgageTitle
-        mortgageText
-        loanTitle
-        loanText
-        aboutTitle
-        aboutText
-        financingTitle
-        financingText
+        offers {
+          title
+          text
+          link
+        }
         button
       }
       plan {

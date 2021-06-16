@@ -25,6 +25,16 @@ function Page({ data }) {
             </div>
           </div>
           <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
+            <div className="mt-8 lg:mt-0">
+              <div className="text-base max-w-prose mx-auto lg:max-w-none">
+                <p className="text-lg text-gray-500">{article.shortDescription}</p>
+              </div>
+              <div
+                className="mt-5 prose prose-blue text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1"
+                // eslint-disable-next-line react/no-danger
+                dangerouslySetInnerHTML={{ __html: article.html }}
+              />
+            </div>
             <div className="relative lg:row-start-1 lg:col-start-2">
               <svg
                 className="hidden lg:block absolute top-0 right-0 -mt-20 -mr-20"
@@ -59,16 +69,6 @@ function Page({ data }) {
                 <ContactTeaser />
               </div>
             </div>
-            <div className="mt-8 lg:mt-0">
-              <div className="text-base max-w-prose mx-auto lg:max-w-none">
-                <p className="text-lg text-gray-500">{article.shortDescription}</p>
-              </div>
-              <div
-                className="mt-5 prose prose-blue text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1"
-                // eslint-disable-next-line react/no-danger
-                dangerouslySetInnerHTML={{ __html: article.html }}
-              />
-            </div>
           </div>
         </div>
       </div>
@@ -84,7 +84,7 @@ Page.propTypes = {
 export default Page;
 
 export const query = graphql`
-  query($slug: String!) {
+  query ($slug: String!) {
     markdownRemark(frontmatter: { slug: { eq: $slug } }) {
       id
       html

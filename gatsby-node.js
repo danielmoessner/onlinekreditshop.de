@@ -24,6 +24,14 @@ exports.createPages = async ({ graphql, actions }) => {
           id
         }
       }
+      services: allMarkdownRemark(filter: { frontmatter: { collection: { eq: "service" } } }) {
+        nodes {
+          frontmatter {
+            slug
+          }
+          id
+        }
+      }
     }
   `);
   result.data.articles.nodes.forEach((node) => {
@@ -42,6 +50,18 @@ exports.createPages = async ({ graphql, actions }) => {
     createPage({
       path: `rechner/${node.frontmatter.slug}/`,
       component: path.resolve(`./src/templates/calculator.jsx`),
+      context: {
+        // Data passed to context is available
+        // in page queries as GraphQL variables.
+        slug: node.frontmatter.slug,
+        id: node.id,
+      },
+    });
+  });
+  result.data.services.nodes.forEach((node) => {
+    createPage({
+      path: `angebot/${node.frontmatter.slug}/`,
+      component: path.resolve(`./src/templates/service.jsx`),
       context: {
         // Data passed to context is available
         // in page queries as GraphQL variables.
