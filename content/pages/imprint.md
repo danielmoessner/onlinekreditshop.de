@@ -5,7 +5,7 @@ title: Impressum
 category: Rechtliches
 description: Hier finden Sie unsere rechtlichen Themen.
 ---
-## www.onlinekreditshop.de
+## onlinekreditshop.de
 
 Metin Calis\
 Dachauer Str. 103\

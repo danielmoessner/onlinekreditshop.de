@@ -35,7 +35,7 @@ function Page({ data }) {
           src="https://www.baufi-lead.de/baufilead/partner/dvvEderFNPvzhryAcDJwqVsqxpCjmC/imports.js"
         />
       </Helmet>
-      <div className="pb-16 pt-32 bg-gray-50 overflow-hidden">
+      <div className="pb-16 pt-32 bg-gray-50 overflow-hidden" style={{ minHeight: '75vh' }}>
         <div className="max-w-7xl mx-auto px-4 space-y-8 sm:px-6 lg:px-8">
           <div className="text-base max-w-prose mx-auto lg:max-w-none">
             <p className="text-base text-blue-800 font-semibold tracking-wide uppercase">
