@@ -7,10 +7,14 @@ import Seo from '../components/Seo';
 
 function Page({ data }) {
   const article = { html: data.markdownRemark.html, ...data.markdownRemark.frontmatter };
+  const meta = {
+    title: article.title,
+    description: article.description,
+  };
 
   return (
     <Layout>
-      <Seo title={article.title} description={article.shortDescription} />
+      <Seo meta={meta} />
       <div className="bg-white overflow-hidden pt-20">
         <div className="relative max-w-7xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:px-8">
           <div className="hidden lg:block bg-gray-50 fixed z-0 top-0 bottom-0 left-3/4 w-screen" />
@@ -27,7 +31,7 @@ function Page({ data }) {
           <div className="mt-8 lg:grid lg:grid-cols-2 lg:gap-8">
             <div className="mt-8 lg:mt-0">
               <div className="text-base max-w-prose mx-auto lg:max-w-none">
-                <p className="text-lg text-gray-500">{article.shortDescription}</p>
+                <p className="text-lg text-gray-500">{article.description}</p>
               </div>
               <div
                 className="mt-5 prose prose-blue text-gray-500 mx-auto lg:max-w-none lg:row-start-1 lg:col-start-1"
@@ -92,7 +96,7 @@ export const query = graphql`
         slug
         category
         title
-        shortDescription
+        description
       }
     }
   }

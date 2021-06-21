@@ -1,3 +1,5 @@
+import meta from '../symbols/meta';
+
 export default {
   file: 'content/pages/home.yml',
   label: 'Startseite',
@@ -15,28 +17,7 @@ export default {
       widget: 'hidden',
       default: 'home',
     },
-    {
-      label: 'Meta',
-      name: 'meta',
-      widget: 'object',
-      fields: [
-        {
-          label: 'Titel',
-          name: 'title',
-          widget: 'string',
-        },
-        {
-          label: 'Beschreibung',
-          name: 'description',
-          widget: 'text',
-        },
-        {
-          label: 'Bild',
-          name: 'image',
-          widget: 'image',
-        },
-      ],
-    },
+    meta,
     {
       label: 'Header',
       name: 'header',

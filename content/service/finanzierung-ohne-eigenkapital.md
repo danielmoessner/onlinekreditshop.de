@@ -1,5 +1,4 @@
 ---
-shortDescription: Wir helfen Ihnen auch wenn Sie kein Eigenkapital zur Verfügung haben.
 collection: service
 slug: finanzierung-ohne-eigenkapital
 title: Finanzierung ohne Eigenkapital

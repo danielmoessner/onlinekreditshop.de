@@ -7,7 +7,7 @@ import Seo from '../components/Seo';
 import ArticleItem from '../components/ArticleItem';
 
 function Page({ data }) {
-  const articles = data.allMarkdownRemark.nodes.map((node) => node.frontmatter);
+  const calculators = data.allMarkdownRemark.nodes.map((node) => node.frontmatter);
   const page = data.pagesYaml;
 
   return (
@@ -18,12 +18,12 @@ function Page({ data }) {
         <div className="bg-white pt-16 pb-16 lg:pt-24 lg:pb-24">
           <div className="relative max-w-lg mx-auto divide-y-2 divide-gray-200 lg:max-w-7xl px-4 sm:px-6 lg:px-8">
             <div className="grid gap-16 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
-              {articles.map((article) => (
+              {calculators.map((calculator) => (
                 <ArticleItem
-                  key={article.slug}
-                  article={article}
-                  button={page.articles.button}
-                  link={`/ratgeber/${article.slug}/`}
+                  link={`/rechner/${calculator.slug}/`}
+                  key={calculator.slug}
+                  article={calculator}
+                  button={page.calculators.button}
                 />
               ))}
             </div>
@@ -43,17 +43,16 @@ export default Page;
 
 export const query = graphql`
   {
-    allMarkdownRemark(filter: { frontmatter: { collection: { eq: "article" } } }) {
+    allMarkdownRemark(filter: { frontmatter: { collection: { eq: "calculator" } } }) {
       nodes {
         frontmatter {
-          category
           slug
           title
           description
         }
       }
     }
-    pagesYaml(slug: { eq: "articles" }) {
+    pagesYaml(slug: { eq: "calculators" }) {
       meta {
         title
         description
@@ -69,7 +68,7 @@ export const query = graphql`
         text
         title
       }
-      articles {
+      calculators {
         button
       }
     }

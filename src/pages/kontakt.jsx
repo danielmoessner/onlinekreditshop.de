@@ -39,11 +39,7 @@ function Page({ data }) {
 
   return (
     <Layout overflowHidden>
-      <Seo
-        title={page.meta.title}
-        description={page.meta.description}
-        image={page.meta.image.childImageSharp.resize.src}
-      />
+      <Seo meta={page.meta} />
       <Header title={page.header.title} text={page.header.text} />
       <section className="relative bg-gray-100">
         <div className="absolute w-full overflow-hidden h-1/2 bg-gray-050" aria-hidden="true" />

@@ -23,9 +23,14 @@ function Page({ data }) {
     doc.body.append(script);
   }, []);
 
+  const meta = {
+    title: calculator.title,
+    description: calculator.description,
+  };
+
   return (
     <Layout>
-      <Seo title={calculator.title} description={calculator.description} />
+      <Seo meta={meta} />
       <div className="bg-white overflow-hidden pt-20" style={{ minHeight: '70vh' }}>
         <div className="relative max-w-7xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:px-8">
           <div className="hidden lg:block bg-gray-50 fixed z-0 top-0 bottom-0 left-3/4 w-screen" />

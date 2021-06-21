@@ -4,7 +4,7 @@ title: Wie viel Baufinazierung kann ich mir eigentlich wirklich leisten?
 slug: wie-viel-baufinanzierung-kann-ich-mir-eigentlich-wirklich-leisten
 date: 2021-04-09T08:53:29.370Z
 category: Fragen
-shortDescription: Ein ganz wichtiger Punkt ist die monatliche Rate einer
+description: Ein ganz wichtiger Punkt ist die monatliche Rate einer
   Baufinanzierung und deren Berechnung, denn dieser Betrag wird über viele Jahre
   monatlich fällig.
 ---

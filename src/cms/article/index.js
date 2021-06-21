@@ -39,8 +39,8 @@ export default {
       widget: 'string',
     },
     {
-      label: 'Kurzbeschreibung',
-      name: 'shortDescription',
+      label: 'Beschreibung',
+      name: 'description',
       widget: 'text',
     },
     {

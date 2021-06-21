@@ -17,9 +17,23 @@ function Footer() {
         column4
         copyright
       }
+      services: allMarkdownRemark(
+        filter: { frontmatter: { collection: { eq: "service" } } }
+        sort: { fields: frontmatter___order }
+      ) {
+        nodes {
+          frontmatter {
+            title
+            slug
+            icon
+            description
+          }
+        }
+      }
     }
   `);
   const { contact, footer } = data;
+  const services = data.services.nodes.map((node) => node.frontmatter);
 
   return (
     <footer className="bg-gray-800 relative">
@@ -34,27 +48,16 @@ function Footer() {
                     {footer.column1}
                   </h3>
                   <ul className="mt-4 space-y-4">
-                    <li>
-                      <Link
-                        to="/baufinanzierung/"
-                        className="text-base text-gray-300 hover:text-white"
-                      >
-                        Baufinanzierung
-                      </Link>
-                    </li>
-                    <li>
-                      <Link to="/ratenkredit/" className="text-base text-gray-300 hover:text-white">
-                        Ratenkredit
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        to="/finanzierung-ohne-eigenkapital/"
-                        className="text-base text-gray-300 hover:text-white"
-                      >
-                        Finanzierung ohne Eigenkapital
-                      </Link>
-                    </li>
+                    {services.map((service) => (
+                      <li key={service.slug}>
+                        <Link
+                          to={`/angebot/${service.slug}/`}
+                          className="text-base text-gray-300 hover:text-white"
+                        >
+                          {service.title}
+                        </Link>
+                      </li>
+                    ))}
                   </ul>
                 </div>
                 <div className="mt-12 md:mt-0">
@@ -77,6 +80,12 @@ function Footer() {
                     <li>
                       <Link to="/ratgeber/" className="text-base text-gray-300 hover:text-white">
                         Rategeber
+                      </Link>
+                    </li>
+
+                    <li>
+                      <Link to="/rechner/" className="text-base text-gray-300 hover:text-white">
+                        Rechner
                       </Link>
                     </li>
 

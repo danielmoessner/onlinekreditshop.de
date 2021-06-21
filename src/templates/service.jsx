@@ -9,7 +9,7 @@ import ContactTeaser from '../components/ContactTeaser';
 import Seo from '../components/Seo';
 
 function Page({ data }) {
-  const page = { html: data.markdownRemark.html, ...data.markdownRemark.frontmatter };
+  const service = { html: data.markdownRemark.html, ...data.markdownRemark.frontmatter };
 
   useEffect(() => {
     // eslint-disable-next-line
@@ -25,9 +25,14 @@ function Page({ data }) {
     doc.body.append(script);
   }, []);
 
+  const meta = {
+    title: service.title,
+    description: service.description,
+  };
+
   return (
     <Layout>
-      <Seo title={page.title} description={page.description} />
+      <Seo meta={meta} />
       <Helmet>
         <script
           defer
@@ -39,38 +44,38 @@ function Page({ data }) {
         <div className="max-w-7xl mx-auto px-4 space-y-8 sm:px-6 lg:px-8">
           <div className="text-base max-w-prose mx-auto lg:max-w-none">
             <p className="text-base text-blue-800 font-semibold tracking-wide uppercase">
-              {page.category}
+              {service.category}
             </p>
             <h1 className="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
-              {page.title}
+              {service.title}
             </h1>
           </div>
           <div className="relative z-10 text-base max-w-prose mx-auto lg:max-w-5xl lg:mx-0 lg:pr-72">
-            <p className="text-lg text-gray-500">{page.description}</p>
+            <p className="text-lg text-gray-500">{service.description}</p>
           </div>
           <div className="lg:grid lg:grid-cols-2 lg:gap-8 lg:items-start">
             <div className="relative z-10">
               <div
                 className="prose prose-blue text-gray-500 mx-auto lg:max-w-none"
                 // eslint-disable-next-line
-                dangerouslySetInnerHTML={{ __html: page.html }}
+                dangerouslySetInnerHTML={{ __html: service.html }}
               />
               <div className="mt-10 flex text-base max-w-prose mx-auto lg:max-w-none space-x-4">
-                {page.calcButton && (
+                {service.calcButton && (
                   <PrimaryButtonB
                     styleClass="ring-offset-gray-100"
-                    extraClass={page.calcButton.calculator}
+                    extraClass={service.calcButton.calculator}
                   >
-                    {page.calcButton.text}
+                    {service.calcButton.text}
                   </PrimaryButtonB>
                 )}
-                {page.linkButton && (
+                {service.linkButton && (
                   <PrimaryButtonA
                     styleClass="ring-offset-gray-100"
-                    href={page.linkButton.link}
+                    href={service.linkButton.link}
                     target="_blank"
                   >
-                    {page.linkButton.text}
+                    {service.linkButton.text}
                   </PrimaryButtonA>
                 )}
               </div>

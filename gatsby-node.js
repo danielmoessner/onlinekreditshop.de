@@ -71,3 +71,23 @@ exports.createPages = async ({ graphql, actions }) => {
     });
   });
 };
+
+exports.sourceNodes = ({ actions }) => {
+  actions.createTypes(`
+
+    # make the image of the meta block optional
+
+    type PagesYamlMeta @infer {
+      title: String
+      description: String
+      image: File @fileByRelativePath
+    }
+
+    type MarkdownRemarkFrontmatterMeta @infer {
+      title: String
+      description: String
+      image: File @fileByRelativePath
+    }
+
+  `);
+};

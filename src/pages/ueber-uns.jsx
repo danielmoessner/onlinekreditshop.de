@@ -12,11 +12,7 @@ function Page({ data }) {
 
   return (
     <Layout>
-      <Seo
-        title={page.meta.title}
-        description={page.meta.description}
-        image={page.meta.image.childImageSharp.resize.src}
-      />
+      <Seo meta={page.meta} />
       <Header title={page.header.title} text={page.header.text} />
       <div className="relative bg-white">
         <div className="relative max-w-7xl mx-auto lg:grid lg:grid-cols-2 lg:px-8">

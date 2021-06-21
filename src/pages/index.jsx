@@ -91,11 +91,7 @@ function Page({ data }) {
 
   return (
     <Layout>
-      <Seo
-        title={page.meta.title}
-        description={page.meta.description}
-        image={page.meta.image.childImageSharp.resize.src}
-      />
+      <Seo meta={page.meta} />
       <header className="bg-gray-050">
         <div className="relative overflow-hidden pt-16">
           <Patterns />
@@ -295,7 +291,12 @@ function Page({ data }) {
             </div>
             <div className="mt-6 pt-10 grid gap-16 lg:grid-cols-2 lg:gap-x-5 lg:gap-y-12">
               {articles.map((article) => (
-                <ArticleItem key={article.slug} article={article} button={page.articles.button} />
+                <ArticleItem
+                  key={article.slug}
+                  article={article}
+                  link={`/ratgeber/${article.slug}/`}
+                  button={page.articles.button}
+                />
               ))}
             </div>
           </div>
@@ -341,7 +342,7 @@ export const query = graphql`
           category
           slug
           title
-          shortDescription
+          description
         }
       }
     }

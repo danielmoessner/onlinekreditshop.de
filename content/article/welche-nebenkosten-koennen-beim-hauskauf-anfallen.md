@@ -4,7 +4,7 @@ title: Welche Nebenkosten können beim Hauskauf anfallen?
 slug: welche-nebenkosten-koennen-beim-hauskauf-anfallen
 date: 2021-04-12T08:02:01.007Z
 category: Nebenkosten
-shortDescription: Sie planen den Bau oder Kauf einer Immobilie, möchten eine
+description: Sie planen den Bau oder Kauf einer Immobilie, möchten eine
   Finanzierung umschulden oder es sollen sonstige Änderungen im Grundbuch
   vorgenommen werden?
 ---

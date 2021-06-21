@@ -4,7 +4,7 @@ title: "Benötigte Unterlagen: Finanzierung einer bestehenden Immobilie"
 slug: benoetigte-unterlagen-finanzierung-bestehende-immobilie
 date: 2021-04-12T08:09:51.025Z
 category: Fragen
-shortDescription: "Welche Unterlagen benötigen Sie bei einer
+description: "Welche Unterlagen benötigen Sie bei einer
   Immobilienfinanzierung? Egal bei welcher Bank die Finanzierung abläuft: Diese
   Unterlagen werden wichtig."
 ---
