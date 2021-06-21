@@ -6,10 +6,14 @@ import Seo from '../components/Seo';
 
 function Page({ data }) {
   const page = { html: data.markdownRemark.html, ...data.markdownRemark.frontmatter };
+  const meta = {
+    title: page.title,
+    description: page.description,
+  };
 
   return (
     <Layout>
-      <Seo title={page.title} description={page.description} />
+      <Seo meta={meta} />
       <div className="bg-white overflow-hidden pt-20">
         <div className="relative max-w-7xl mx-auto pt-16 pb-24 px-4 sm:px-6 lg:px-8">
           <div className="mx-auto text-base max-w-prose lg:grid lg:grid-cols-2 lg:gap-8 lg:max-w-none">
