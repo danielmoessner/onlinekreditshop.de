@@ -41,6 +41,12 @@ export default {
           widget: 'text',
           required: false,
         },
+        {
+          label: 'Canonical URL',
+          name: 'canonicalURL',
+          widget: 'string',
+          hint: 'Beispiel: https://metincalis.com',
+        },
       ],
     },
     {

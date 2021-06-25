@@ -7,7 +7,7 @@ function SEO({ meta }) {
   const data = useStaticQuery(
     graphql`
       query Favicon {
-        settingsYaml(slug: { eq: "global" }) {
+        global: settingsYaml(slug: { eq: "global" }) {
           favicon {
             childImageSharp {
               resize(width: 256, height: 256, cropFocus: CENTER) {
@@ -15,15 +15,22 @@ function SEO({ meta }) {
               }
             }
           }
+          canonicalURL
         }
       }
     `
   );
-  const favicon = data.settingsYaml.favicon.childImageSharp.resize.src;
+  const favicon = data.global.favicon.childImageSharp.resize.src;
+  const { global } = data;
   const { title, description, image } = meta;
+  // eslint-disable-next-line no-undef
+  const url = typeof window !== 'undefined' ? window.location.pathname : '';
 
   return (
     <Helmet htmlAttributes={{ lang: 'de' }}>
+      {/* Duplicate Content Fix */}
+      <link rel="canonical" href={global.canonicalURL + url} />
+
       {/* General tags */}
       <title>{title}</title>
       <meta name="description" content={description} />
