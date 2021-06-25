@@ -17,7 +17,7 @@ init({
     backend: {
       name: 'git-gateway',
       branch: 'main',
-      repo: 'danielmoessner/online-kreditshop.de',
+      repo: 'danielmoessner/onlinekreditshop.de',
     },
     // See https://www.netlifycms.org/docs/beta-features/#working-with-a-local-git-repository
     local_backend: true,

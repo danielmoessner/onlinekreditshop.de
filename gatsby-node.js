@@ -89,5 +89,11 @@ exports.sourceNodes = ({ actions }) => {
       image: File @fileByRelativePath
     }
 
+    # optional fields
+
+    type SettingsYaml implements Node @infer {
+      provenExpert: String
+    }
+
   `);
 };
