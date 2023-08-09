@@ -5,7 +5,7 @@ title: Impressum
 category: Rechtliches
 description: Hier finden Sie unsere rechtlichen Themen.
 ---
-## onlinekreditshop.de
+Kreditvermittlung München
 
 Metin Calis\
 Dachauer Str. 103\
